@@ -1,0 +1,62 @@
+//colours
+$sidebar-color: #393939;
+$nav-active-background: #1d2123;
+$nav-active-icon-color: #995555; 
+
+//Variables
+$sidebar-width: 180px;
+
+
+#sidebar {
+  width: $sidebar-width;
+  height: 100%;
+  background: $sidebar-color;
+  color: #ccc;
+  position: fixed;
+  left:0;
+  top:0;
+  .nav-title {
+    font-size: 1.5em;
+    text-align: right;
+    padding: 0.1em 1.2em 0.1em 0.1em;
+  }
+  .nav-top-contact {
+    font-size: 0.8em;
+    text-align: right;    
+    padding: 0.1em 1.2em 0.1em 0.1em;
+  }
+nav {
+  
+  ul {
+    display: inline;
+    a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    a:active li {}
+    a:hover li {
+      color: #fff;
+      background: $nav-active-background;
+      i {
+        color: $nav-active-icon-color;
+      }
+    }
+    li {
+      padding: 0.6em 1.2em 0.6em 0.6em;
+      text-align: right;
+    }
+  }
+}
+}
+.nav-active li {
+  color: #fff;
+  background: $nav-active-background;
+  i {
+    color: $nav-active-icon-color;
+  }
+}
+#content {
+  position: absolute;
+  left: $sidebar-width;
+}
