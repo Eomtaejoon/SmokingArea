@@ -1,0 +1,145 @@
+body { 
+    overflow:hidden;
+    font-size:62.5%;
+    margin: auto;
+   	padding:0;
+}
+
+/*http://i.imgur.com/7vV7g.png*/
+#container {
+    	margin:0;
+    	padding:0;  
+}
+
+
+#loginBox{
+	position:absolute;
+    	top:50%;
+    	margin:-150px 0 0 -130px;
+    	width:260px;
+    	height:150px;
+	
+}
+/* Rips on page split */
+#leftRip, #rightRip { 
+	width:30px;height:100%;
+    	display:block;
+    	position:absolute;
+    	z-index:-1;
+}
+#leftRip{
+	left:100%;
+	background:url(http://i.imgur.com/HSYlY.png) top right repeat-y;
+}
+#rightRip {
+    	right:100%;
+	background: url(http://i.imgur.com/SkRJG.png) top left repeat-y;
+}
+/* Form */
+#loginHd {
+	border-top-left-radius:5px;
+    	border-top-right-radius:5px;
+    	margin:0;
+    	padding:5px;
+    	font-size:1.4em;
+    	background-image: -webkit-gradient(linear, left top, left bottom, from(#3C424D), to(#242A35));
+        background-image: -webkit-linear-gradient(top, #3C424D, #242A35);
+        background-image: -moz-linear-gradient(top, #3C424D, #242A35);
+        background-image: -ms-linear-gradient(top, #3C424D, #242A35);
+        background-image: -o-linear-gradient(top, #3C424D, #242A35);
+        background-image: linear-gradient(top, #3C424D, #242A35);
+    	box-shadow:0 1px 1px rgba(255, 255, 255, 0.2) inset;
+}
+#loginHd h4 {margin:2px 5px;color:#fff;}
+#loginForm {
+	background:#efefef;
+    	border-bottom-left-radius:5px;
+    	border-bottom-right-radius:5px;
+}
+
+#loginBtn { 
+	margin-left:80px;
+}
+
+#loginBox a {
+    	font-size:1.3em;
+    	line-height:1.5em;
+    	margin-left:8px;
+}
+
+/* Nice Inputs */
+#loginForm input[type=text], #loginBox input[type=password] {
+    	border:1px solid #929292;
+    	-moz-border-radius:5px;
+    	-webkit-border-radius:5px;
+      	border-radius:5px;
+	width:230px;
+    	height:26px;
+    	font-size:1.6em;
+	padding:3px;
+        margin:10px;
+	margin-bottom:10px;
+}
+
+/* Nice Buttons */
+.button {        
+        display: inline-block;
+        white-space: nowrap;
+        background-color: #ccc;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+        background-image: -webkit-linear-gradient(top, #eee, #ccc);
+        background-image: -moz-linear-gradient(top, #eee, #ccc);
+        background-image: -ms-linear-gradient(top, #eee, #ccc);
+        background-image: -o-linear-gradient(top, #eee, #ccc);
+        background-image: linear-gradient(top, #eee, #ccc);
+        border: 1px solid #777;
+        padding: 0 1.5em;
+        margin: 0.5em;
+        font: bold 1.5em/2.5em Arial, Helvetica;
+        text-decoration: none;
+        color: #333;
+        text-shadow: 0 1px 0 rgba(255,255,255,.8);
+        -moz-border-radius: .2em;
+        -webkit-border-radius: .2em;
+        border-radius: .2em;
+        -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+        -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+        box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}  
+.button:hover {
+    	cursor:pointer;
+        background-color: #ddd;        
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+        background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+        background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+        background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+        background-image: -o-linear-gradient(top, #fafafa, #ddd);
+        background-image: linear-gradient(top, #fafafa, #ddd); 
+}   
+.button:active {
+        -moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+        -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+        box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+        position: relative;
+        top: 1px;
+}
+.button:focus {
+        outline: 0;
+        background: #fafafa;
+}    
+.button:before {
+        background: #ccc;
+        background: rgba(0,0,0,.1);
+        float: left;        
+        width: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0 1em 0 -1em;
+        padding: 0 .2em;
+        -moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        -webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        -moz-border-radius: .15em 0 0 .15em;
+        -webkit-border-radius: .15em 0 0 .15em;
+        border-radius: .15em 0 0 .15em;        
+}
