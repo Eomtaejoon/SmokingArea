@@ -48,7 +48,7 @@
 					<h2>Login</h2>
 					<form method="post" action="<%=request.getContextPath()%>/MemberLoginAction.me">
 						<div class="form-group">
-							<label for="userid" class="form-label" > userid : 용민이pc </label> 
+							<label for="userid" class="form-label" > userid : </label> 
 							<input type="text" name="MEMBER_ID" maxlength="10"/>
 						</div>
 						<div class="form-group">
