@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%
+	/* 技记  楷搬 */
+	String id = (String)session.getAttribute("id");
+	boolean login = id == null ? false : true;
+%>	
+
 <html>
 <head>
 <meta charset="utf-8" />
@@ -20,6 +26,7 @@
 			<div class="large-3 columns">
 				<img src="http://placehold.it/400x100&text=Logo" />
 			</div>
+			<%=id %> 丛 立加
 		</div>
 
 		<div class="row">

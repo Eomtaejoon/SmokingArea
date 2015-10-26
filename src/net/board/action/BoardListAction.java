@@ -14,9 +14,11 @@ import net.board.db.BoardDAO;
 		HttpSession session=request.getSession();
 		
 		String id=(String)session.getAttribute("id");
+		
+		
    		if(id==null){
 			forward.setRedirect(true);
-			forward.setPath("MemberLogin.me");
+			forward.setPath("/index.me");
 			return forward;
    		}
    		
@@ -30,27 +32,27 @@ import net.board.db.BoardDAO;
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listcount=boarddao.getListCount(); //ÃÑ ¸®½ºÆ® ¼ö¸¦ ¹Ş¾Æ¿È.
-		boardlist = boarddao.getBoardList(page,limit); //¸®½ºÆ®¸¦ ¹Ş¾Æ¿È.
+		int listcount=boarddao.getListCount(); //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½.
+		boardlist = boarddao.getBoardList(page,limit); //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ş¾Æ¿ï¿½.
 		
-		//ÃÑ ÆäÀÌÁö ¼ö.
-   		int maxpage=(int)((double)listcount/limit+0.95); //0.95¸¦ ´õÇØ¼­ ¿Ã¸² Ã³¸®.
-   		//ÇöÀç ÆäÀÌÁö¿¡ º¸¿©ÁÙ ½ÃÀÛ ÆäÀÌÁö ¼ö(1, 11, 21 µî...)
+   		int maxpage=(int)((double)listcount/limit+0.95); //0.95ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ã¸ï¿½ Ã³ï¿½ï¿½.
+   		
    		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
-   		//ÇöÀç ÆäÀÌÁö¿¡ º¸¿©ÁÙ ¸¶Áö¸· ÆäÀÌÁö ¼ö.(10, 20, 30 µî...)
+   		
    		int endpage = maxpage;
    		
    		if (endpage>startpage+10-1) endpage=startpage+10-1;
    		
-   		request.setAttribute("page", page);		  //ÇöÀç ÆäÀÌÁö ¼ö.
-   		request.setAttribute("maxpage", maxpage); //ÃÖ´ë ÆäÀÌÁö ¼ö.
-   		request.setAttribute("startpage", startpage); //ÇöÀç ÆäÀÌÁö¿¡ Ç¥½ÃÇÒ Ã¹ ÆäÀÌÁö ¼ö.
-   		request.setAttribute("endpage", endpage);     //ÇöÀç ÆäÀÌÁö¿¡ Ç¥½ÃÇÒ ³¡ ÆäÀÌÁö ¼ö.
-		request.setAttribute("listcount",listcount); //±Û ¼ö.
+   		request.setAttribute("page", page);		  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+   		request.setAttribute("maxpage", maxpage); //ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+   		request.setAttribute("startpage", startpage); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+   		request.setAttribute("endpage", endpage);     //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+		request.setAttribute("listcount",listcount); //ï¿½ï¿½ ï¿½ï¿½.
 		request.setAttribute("boardlist", boardlist);
 		
+		
 	   	forward.setRedirect(false);
-   		forward.setPath("../board/qna_board_list.jsp");
+   		forward.setPath("/board/qna_board_list.jsp");
    		return forward;
 	 }
  }

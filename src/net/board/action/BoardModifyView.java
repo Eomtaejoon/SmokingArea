@@ -19,14 +19,14 @@ public class BoardModifyView implements Action {
 		   	boarddata=boarddao.getDetail(num);
 		   	
 		   	if(boarddata==null){
-		   		System.out.println("(¼öÁ¤)»ó¼¼º¸±â ½ÇÆÐ");
+		   		System.out.println("(ï¿½ï¿½ï¿½ï¿½)ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		   		return null;
 		   	}
-		   	System.out.println("(¼öÁ¤)»ó¼¼º¸±â ¼º°ø");
+		   	System.out.println("(ï¿½ï¿½ï¿½ï¿½)ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		   	
 		   	request.setAttribute("boarddata", boarddata);
 		   	forward.setRedirect(false);
-	   		forward.setPath("../board/qna_board_modify.jsp");
+	   		forward.setPath("/board/qna_board_modify.jsp");
 	   		return forward;
 	 }
 }

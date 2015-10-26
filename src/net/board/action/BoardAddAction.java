@@ -15,7 +15,7 @@ public class BoardAddAction implements Action {
 	   	BoardBean boarddata=new BoardBean();
 	   	ActionForward forward=new ActionForward();
 	   	
-   		String saveFolder="c:\\upload\\";
+   		String saveFolder="C:\\Users\\12-718-8\\git\\SmokingArea\\WebContent\\boardupload\\";
    		
    		int fileSize=5*1024*1024;
    		
@@ -45,13 +45,13 @@ public class BoardAddAction implements Action {
 	   		result=boarddao.boardInsert(boarddata);
 
 	   		if(result==false){
-	   			System.out.println("°Ô½ÃÆÇ µî·Ï ½ÇÆÐ");
+	   			System.out.println("ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	   			return null;
 	   		}
-	   		System.out.println("°Ô½ÃÆÇ µî·Ï ¿Ï·á");
+	   		System.out.println("ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("BoardList.bo");
+	   		forward.setPath("./BoardList.bo");
 	   		return forward;
 	   		
   		}catch(Exception ex){

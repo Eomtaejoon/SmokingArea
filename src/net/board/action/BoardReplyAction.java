@@ -26,13 +26,13 @@ public class BoardReplyAction implements Action {
 	   		
 	   		result=boarddao.boardReply(boarddata);
 	   		if(result==0){
-	   			System.out.println("´äÀå ½ÇÆÐ");
+	   			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	   			return null;
 	   		}
-	   		System.out.println("´äÀå ¿Ï·á");
+	   		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("../BoardDetailAction.bo?num="+result);
+	   		forward.setPath("./BoardDetailAction.bo?num="+result);
 	   		return forward;
 	}  	
 }

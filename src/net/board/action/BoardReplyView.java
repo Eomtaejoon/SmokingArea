@@ -19,15 +19,15 @@ public class BoardReplyView implements Action {
 	   		boarddata=boarddao.getDetail(num);
 	   		
 	   		if(boarddata==null){
-	   			System.out.println("´äÀå ÆäÀÌÁö ÀÌµ¿ ½ÇÆĞ");
+	   			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
 	   			return null;
 	   		}
-	   		System.out.println("´äÀå ÆäÀÌÁö ÀÌµ¿ ¿Ï·á");
+	   		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ï·ï¿½");
 	   		
 	   		request.setAttribute("boarddata", boarddata);
 	   		
 	   		forward.setRedirect(false);
-	   		forward.setPath("../board/qna_board_reply.jsp");
+	   		forward.setPath("/board/qna_board_reply.jsp");
 	   		return forward;
 	}
 }

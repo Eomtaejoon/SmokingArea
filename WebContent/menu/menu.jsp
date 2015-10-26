@@ -22,7 +22,7 @@
 					<a href="#best"><li>베스트존 <i class="fa fa-thumbs-up fa-fw"></i></li></a>
 					<a href="#map"><li>맵 <i class="fa fa-map-marker fa-fw"></i></li></a>
 					<a href="#event"><li>이벤트 <i class="fa fa-gift fa-fw"></i></li></a>
-					<a href="#board"><li>게시판 <i class="fa fa-pencil-square-o fa-fw"></i></li></a>
+					<a href="<%= request.getContextPath() %>/BoardList.bo"><li>게시판 <i class="fa fa-pencil-square-o fa-fw"></i></li></a>
 					<a href="#etc"><li class='sub-menu' style="padding-left: 0.9em">기타 <i class="fa fa-question-circle fa-fw"></i></a>
 					<ul>
 					<li><a>금연도우미</a></li>

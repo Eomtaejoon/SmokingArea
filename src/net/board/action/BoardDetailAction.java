@@ -19,15 +19,15 @@ import net.board.db.BoardBean;
 	   	boarddata=boarddao.getDetail(num);
 	   	
 	   	if(boarddata==null){
-	   		System.out.println("»ó¼¼º¸±â ½ÇÆÐ");
+	   		System.out.println("ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	   		return null;
 	   	}
-	   	System.out.println("»ó¼¼º¸±â ¼º°ø");
+	   	System.out.println("ï¿½ó¼¼ºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	   	
 	   	request.setAttribute("boarddata", boarddata);
 	   	ActionForward forward = new ActionForward();
 	   	forward.setRedirect(false);
-   		forward.setPath("../board/qna_board_view.jsp");
+   		forward.setPath("/board/qna_board_view.jsp");
    		return forward;
 
 	 }
