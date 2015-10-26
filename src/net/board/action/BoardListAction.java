@@ -18,7 +18,7 @@ import net.board.db.BoardDAO;
 		
    		if(id==null){
 			forward.setRedirect(true);
-			forward.setPath("/index.me");
+			forward.setPath("./index.me");
 			return forward;
    		}
    		
