@@ -13,12 +13,12 @@ import net.entity.MemberBean;
 public class MemberService {
 	
 	@SuppressWarnings("finally")
-	public boolean insert(MemberBean member){
+	public boolean sinup(MemberBean member){
 		SqlSession session = MySQLSessionFactory.openSession();
 		//코드 패턴
 		try{
 			//id값 반드시 일치
-			int n = session.insert("memberMappeing.Insert", member);
+			int n = session.insert("memberMappeing.sinup", member);
 			// n값은 작용된 레코드
 			if(n==1){
 				session.commit();
@@ -28,8 +28,28 @@ public class MemberService {
 			session.close();
 			return true;
 		}
+	}//end sinup
+	
+	@SuppressWarnings("finally")
+	public int login(String member_id){
+		int result = 0;
+		SqlSession session = MySQLSessionFactory.openSession();
+		//코드 패턴
+		MemberBean bean = null;
+		try{
+			//id값 반드시 일치
+			bean = session.selectOne("memberMappeing.login", member_id);
+			
+			if(bean!=null){
+				result = 1;
+			}
+		}finally{
+			session.close();
+			return result;
+		}
 		
-	}//end insert
+		
+	}
 
 	
 	

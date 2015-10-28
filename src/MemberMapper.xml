@@ -4,13 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMappeing">
 
-	<!-- 입력 -->
-	<insert id="Insert" parameterType="net.entity.MemberBean">
+	<!-- 회원가입 -->
+	<insert id="sinup" parameterType="net.entity.MemberBean">
 		insert into S_MEMBER( num,
 		member_id, member_pw, member_phone, member_email)
 		values ( myboard_seq.nextval , #{member_id} ,
 		#{member_pw} , #{member_phone}, #{member_email})
 	</insert>
+	
+	<!-- 특정 레코드 검색 -->
+	<select id="login" parameterType="string" resultType="net.entity.MemberBean">
+		select member_pw from S_MEMBER
+		where member_id = #{member_id}
+	</select>
+	
+	
 	
 <!-- 
 
@@ -39,11 +47,6 @@
 		select * from myboard
 	</select>
 
-	특정 레코드 검색
-	<select id="boardByTitle" parameterType="string" resultType="com.entity.BoardBean">
-		select * from myboard
-		where title = #{title}
-	</select>
 
 	num 레코드 검색
 	<select id="boardByNum" parameterType="int" resultType="com.entity.BoardBean">
