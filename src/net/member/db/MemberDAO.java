@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
+import net.entity.MemberBean;
+
 public class MemberDAO {
 	Connection con;
 	PreparedStatement pstmt;
@@ -32,15 +34,15 @@ public class MemberDAO {
 	public int isMember(MemberBean member){
 		String sql="SELECT S_PW FROM S_MEMBER WHERE S_ID=?";
 		int result=-1;
-		System.out.println(member.getMEMBER_ID());
+		System.out.println(member.getMember_id());
 		try{
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, member.getMEMBER_ID());
+			pstmt.setString(1, member.getMember_id());
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
 				if(rs.getString("S_PW").equals(
-									member.getMEMBER_PW())){
+									member.getMember_pw())){
 					result=1;//로그인.
 				}else{
 					result=0;//로그인 실패.
@@ -74,10 +76,10 @@ public class MemberDAO {
 			
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2, member.getMEMBER_ID());
-			pstmt.setString(3, member.getMEMBER_PW());
-			pstmt.setString(4, member.getMEMBER_PHONE());
-			pstmt.setString(5, member.getMEMBER_EMAIL());
+			pstmt.setString(2, member.getMember_id());
+			pstmt.setString(3, member.getMember_pw());
+			pstmt.setString(4, member.getMember_phone());
+			pstmt.setString(5, member.getMember_email());
 			result=pstmt.executeUpdate();
 			
 			if(result!=0){
@@ -103,10 +105,10 @@ public class MemberDAO {
 			
 			while(rs.next()){
 				MemberBean mb=new MemberBean();
-				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-				mb.setMEMBER_PW(rs.getString("MEMBER_PW"));
+				mb.setMember_id(rs.getString("MEMBER_ID"));
+				mb.setMember_pw(rs.getString("MEMBER_PW"));
 
-				mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+				mb.setMember_email(rs.getString("MEMBER_EMAIL"));
 				
 				memberlist.add(mb);
 			}
@@ -131,10 +133,10 @@ public class MemberDAO {
 			rs.next();
 			
 			MemberBean mb=new MemberBean();
-			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-			mb.setMEMBER_PW(rs.getString("MEMBER_PW"));
+			mb.setMember_id(rs.getString("MEMBER_ID"));
+			mb.setMember_pw(rs.getString("MEMBER_PW"));
 
-			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMember_email(rs.getString("MEMBER_EMAIL"));
 			
 			return mb;
 		}catch(Exception ex){

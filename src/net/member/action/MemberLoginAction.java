@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.entity.MemberBean;
 import net.member.action.ActionForward;
-import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 
 public class MemberLoginAction implements Action{
@@ -21,8 +21,8 @@ public class MemberLoginAction implements Action{
 	   		
 	   		int result=-1;
 	   		
-	   		member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
-	   		member.setMEMBER_PW(request.getParameter("MEMBER_PW"));
+	   		member.setMember_id(request.getParameter("MEMBER_ID"));
+	   		member.setMember_pw(request.getParameter("MEMBER_PW"));
 	   		
 	   		System.out.println(request.getParameter("MEMBER_ID"));
 	   		result=memberdao.isMember(member);
@@ -48,7 +48,7 @@ public class MemberLoginAction implements Action{
 		   	}
 	   		
 	   		//로그인 성공
-	   		session.setAttribute("id", member.getMEMBER_ID()); //세션에 id등록
+	   		session.setAttribute("id", member.getMember_id()); //세션에 id등록
 	   		
 	   		forward.setRedirect(true); //접속끊었다가 다시 연결하면서 새로운 정보를 보여준다
 	   		forward.setPath("/last_project/index.me");

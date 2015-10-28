@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.entity.MemberBean;
 import net.member.action.ActionForward;
-import net.member.db.MemberBean;
 import net.member.db.MemberDAO;
 
 public class MemberViewAction implements Action{
@@ -28,7 +28,7 @@ public class MemberViewAction implements Action{
 	   			response.setContentType("text/html;charset=euc-kr");
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
-		   		out.println("alert('°ü¸®ÀÚ°¡ ¾Æ´Õ´Ï´Ù.');");
+		   		out.println("alert('ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Õ´Ï´ï¿½.');");
 		   		out.println("location.href='./BoardList.bo';");
 		   		out.println("</script>");
 		   		out.close();
@@ -39,7 +39,7 @@ public class MemberViewAction implements Action{
 	   		member=memberdao.getDetailMember(viewId);
 	   		
 	   		if(member==null){
-	   			System.out.println("È¸¿ø Á¤º¸ º¸±â ½ÇÆÐ");
+	   			System.out.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		   		return null;
 		   	}
 	   		

@@ -35,7 +35,7 @@
 						</div>
 						<div class="form-group">
 							<input type="text" placeholder="e-mail" name="MEMBER_EMAIL" maxlength="20" />
-						</div> 
+						</div>
 						<button id="goLeft" type="button" class="off">Login</button>
 						<button id="signUp" type="submit">Sign up</button>
 					</form>
