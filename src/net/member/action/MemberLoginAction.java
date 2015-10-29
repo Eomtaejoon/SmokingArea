@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import net.entity.MemberBean;
 import net.member.action.ActionForward;
 import net.member.db.MemberDAO;
+import net.member.db.MemberService;
 
 public class MemberLoginAction implements Action{
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
@@ -16,7 +17,6 @@ public class MemberLoginAction implements Action{
 		 	ActionForward forward = new ActionForward();
 		 	
 		 	HttpSession session=request.getSession();
-			MemberDAO memberdao=new MemberDAO();
 	   		MemberBean member=new MemberBean();
 	   		
 	   		int result=-1;
@@ -24,8 +24,13 @@ public class MemberLoginAction implements Action{
 	   		member.setMember_id(request.getParameter("MEMBER_ID"));
 	   		member.setMember_pw(request.getParameter("MEMBER_PW"));
 	   		
-	   		System.out.println(request.getParameter("MEMBER_ID"));
-	   		result=memberdao.isMember(member);
+	   		MemberService service = new MemberService();
+	   		System.out.println("loginaction= "+ request.getParameter("MEMBER_ID"));
+	   		
+	   		result=(service.login(member.getMember_id()));
+	   		/*result=memberdao.isMember(member);*/
+	   		
+	   		
 	   		
 	   		if(result==0){
 	   			response.setContentType("text/html;charset=utf-8");

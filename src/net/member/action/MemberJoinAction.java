@@ -28,7 +28,7 @@ public class MemberJoinAction implements Action{
 	   		
 	   		MemberService service = new MemberService();
 	   		
-	   		result=service.insert(member);
+	   		result=service.sinup(member);
 	   		
 	   		
 	   		if(result==false){
