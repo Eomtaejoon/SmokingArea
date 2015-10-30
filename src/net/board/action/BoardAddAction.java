@@ -33,22 +33,11 @@ public class BoardAddAction implements Action {
 	   		boarddata.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
 	   		boarddata.setBOARD_FILE(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
    			
-	   		String[] str = multi.getParameterValues("SELECT");
-   			String tmp ="";
-   			for(int i=0;i<str.length;i++){
-   				tmp=str[i]+","+tmp;
-   				System.out.println(tmp);
-   			}
-	   		
-	   		boarddata.setBOARD_YASIK(tmp);
-	   		
 	   		result=boarddao.boardInsert(boarddata);
 
 	   		if(result==false){
-	   			System.out.println("�Խ��� ��� ����");
 	   			return null;
 	   		}
-	   		System.out.println("�Խ��� ��� �Ϸ�");
 	   		
 	   		forward.setRedirect(true);
 	   		forward.setPath("./BoardList.bo");
