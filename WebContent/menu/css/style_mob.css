@@ -1,13 +1,20 @@
 #sidebar {
   width: 60px;
   height: 100%;
-  background: #393939;
-  color: #ccc;
+  color: #ffffff;
   position: fixed;
   left: 0;
   top: 0;
-  font-family: bold;
   list-style: none;
+  
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#50db00+0,ffffff+100&amp;1+0,0+100 */
+background: -moz-linear-gradient(top,  rgba(80,219,0,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(80,219,0,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(80,219,0,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(80,219,0,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(80,219,0,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(80,219,0,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50db00', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 }
 
 #sidebar .nav-title {
@@ -25,14 +32,14 @@
   list-style: none;
 }
 #sidebar nav ul a {
-  color: #ccc;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1em;
 }
 
 #sidebar nav ul a:hover li {
   color: #fff;
-  background: #1d2123;
+  background: #00A352;
 }
 
 
@@ -52,7 +59,7 @@
 
 .nav-active li {
   color: #fff;
-  background: #1d2123;
+  background: #00A352;
 }
 
 .nav-active li i {
