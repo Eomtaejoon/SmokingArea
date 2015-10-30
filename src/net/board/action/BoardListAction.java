@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.board.db.BoardDAO;
+import net.board.db.BoardService;
+import net.member.db.MemberService;
 
  public class BoardListAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -22,34 +24,37 @@ import net.board.db.BoardDAO;
 			return forward;
    		}
    		
-   		
-		BoardDAO boarddao=new BoardDAO();
-		
+   				
 		List boardlist=new ArrayList();
 		
-	  	int page=1;
-		int limit=10;
+	  	int page=1;  //기본적으로 1페이지 부터 시작.
+		int limit=5; //페이지당 개수 제한.
 		
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listcount=boarddao.getListCount(); //�� ����Ʈ ���� �޾ƿ�.
-		boardlist = boarddao.getBoardList(page,limit); //����Ʈ�� �޾ƿ�.
 		
-   		int maxpage=(int)((double)listcount/limit+0.95); //0.95�� ���ؼ� �ø� ó��.
+		BoardService service = new BoardService();
+		
+		int listcount=service.selectCount(); //총 리스트 수
+		
+		boardlist = service.selectByPage(page,limit); //실질적인 리스트 받아오는
+		
+		//총 페이지 수
+		int maxpage=(int)((double)listcount/limit+0.95); //현재 페이지에 보여줄 시작 페이지 수
    		
-   		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
+   		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;//현재 페이지에 보여줄 마지막 페이지 수
    		
    		int endpage = maxpage;
    		
    		if (endpage>startpage+10-1) endpage=startpage+10-1;
    		
-   		request.setAttribute("page", page);		  
-   		request.setAttribute("maxpage", maxpage); 
-   		request.setAttribute("startpage", startpage); 
-   		request.setAttribute("endpage", endpage);     
-		request.setAttribute("listcount",listcount); 
+   		request.setAttribute("page", page);		  //현재 페이지 수
+   		request.setAttribute("maxpage", maxpage); // 최대 페이지 수
+   		request.setAttribute("startpage", startpage); //현재 페이지에 표시할 첫 페이지 수
+   		request.setAttribute("endpage", endpage);     //현재 페이지에 표시할 끝 페이지 수
+		request.setAttribute("listcount",listcount);  //글 수.
 		request.setAttribute("boardlist", boardlist);
 		
 		

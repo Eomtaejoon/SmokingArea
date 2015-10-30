@@ -3,89 +3,107 @@ package net.entity;
 import java.sql.Date;
 
 public class BoardBean {
-	private int BOARD_NUM;
-	private String BOARD_ID;
-	private String BOARD_SUBJECT;
-	private String BOARD_CONTENT;
-	private String BOARD_FILE;
-	private int BOARD_RE_REF;
-	private int BOARD_RE_LEV;
-	private int BOARD_RE_SEQ;
-	private int BOARD_READCOUNT;
-	private Date BOARD_DATE;
-	private String BOARD_CHAT;
-	private String BOARD_YASIK;
+	private int num;
+	private String title;
+	private String content;
+	private String b_id;
+	private Date today;
+	private String gps;
+	private int hit;
+	private String img;
+	private int re_lev;
+	public BoardBean(){
+		super();
+	}
 	
-	public String getBOARD_YASIK() {
-		return BOARD_YASIK;
+	public BoardBean(int num,String title ,String content ,String b_id ,Date today ,String gps,int hit,String img,int re_lev ){
+		super();
+		this.num = num;
+		this.title = title;
+		this.content = content;
+		this.b_id = b_id;
+		this.today = today;
+		this.gps = gps;
+		this.hit = hit;
+		this.img = img;
+		this.re_lev = re_lev;
 	}
-	public void setBOARD_YASIK(String bOARD_YASIK) {
-		BOARD_YASIK = bOARD_YASIK;
+
+	public int getNum() {
+		return num;
 	}
-	public String getBOARD_CHAT() {
-		return BOARD_CHAT;
+
+	public void setNum(int num) {
+		this.num = num;
 	}
-	public void setBOARD_CHAT(String bOARD_CHAT) {
-		BOARD_CHAT = bOARD_CHAT;
+
+	public String getTitle() {
+		return title;
 	}
-	public int getBOARD_NUM() {
-		return BOARD_NUM;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public void setBOARD_NUM(int board_num) {
-		BOARD_NUM = board_num;
+
+	public String getContent() {
+		return content;
 	}
-	public String getBOARD_ID() {
-		return BOARD_ID;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public void setBOARD_ID(String board_id) {
-		BOARD_ID = board_id;
+	
+	public String getId() {
+		return b_id;
 	}
-	public String getBOARD_SUBJECT() {
-		return BOARD_SUBJECT;
+
+	public void setId(String id) {
+		this.b_id = id;
 	}
-	public void setBOARD_SUBJECT(String board_subject) {
-		BOARD_SUBJECT = board_subject;
+
+	public String getGps() {
+		return gps;
 	}
-	public String getBOARD_CONTENT() {
-		return BOARD_CONTENT;
+
+	public void setGps(String gps) {
+		this.gps = gps;
 	}
-	public void setBOARD_CONTENT(String board_content) {
-		BOARD_CONTENT = board_content;
+
+	public int getHit() {
+		return hit;
 	}
-	public String getBOARD_FILE() {
-		return BOARD_FILE;
+
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
-	public void setBOARD_FILE(String board_file) {
-		BOARD_FILE = board_file;
+
+	public String getImg() {
+		return img;
 	}
-	public int getBOARD_RE_REF() {
-		return BOARD_RE_REF;
+
+	public void setImg(String img) {
+		this.img = img;
 	}
-	public void setBOARD_RE_REF(int board_re_ref) {
-		BOARD_RE_REF = board_re_ref;
+	
+	public int getRe_lev() {
+		return re_lev;
 	}
-	public int getBOARD_RE_LEV() {
-		return BOARD_RE_LEV;
+
+	public void setRe_lev(int re_lev) {
+		this.re_lev = re_lev;
 	}
-	public void setBOARD_RE_LEV(int board_re_lev) {
-		BOARD_RE_LEV = board_re_lev;
+
+	public Date getToday() {
+		return today;
 	}
-	public int getBOARD_RE_SEQ() {
-		return BOARD_RE_SEQ;
+
+	public void setToday(Date today) {
+		this.today = today;
 	}
-	public void setBOARD_RE_SEQ(int board_re_seq) {
-		BOARD_RE_SEQ = board_re_seq;
+
+	public String toString(){
+		return "BoardBean [num=" + num + ", title=" + title 
+				+ ", content=" + content +", gps=" + gps +", hit=" + hit +", img=" + img +"]";
 	}
-	public int getBOARD_READCOUNT() {
-		return BOARD_READCOUNT;
-	}
-	public void setBOARD_READCOUNT(int board_readcount) {
-		BOARD_READCOUNT = board_readcount;
-	}
-	public Date getBOARD_DATE() {
-		return BOARD_DATE;
-	}
-	public void setBOARD_DATE(Date board_date) {
-		BOARD_DATE = board_date;
-	}
+	
 }

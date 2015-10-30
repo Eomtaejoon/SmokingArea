@@ -34,10 +34,10 @@ import net.entity.BoardBean;
 		 }
 		 
 		 try{
-			 boarddata.setBOARD_NUM(num);
-			 boarddata.setBOARD_SUBJECT(
+			 boarddata.setNum(num);
+			 boarddata.setTitle(
 					 			request.getParameter("BOARD_SUBJECT"));
-			 boarddata.setBOARD_CONTENT(
+			 boarddata.setContent(
 					 			request.getParameter("BOARD_CONTENT"));
 			 
 			 result = boarddao.boardModify(boarddata);
@@ -49,7 +49,7 @@ import net.entity.BoardBean;
 		   	 
 		   	 forward.setRedirect(true);
 		   	 forward.setPath(
-		   			 	"./BoardDetailAction.bo?num="+boarddata.getBOARD_NUM());
+		   			 	"./BoardDetailAction.bo?num="+boarddata.getNum());
 		   	 return forward;
 	   	 }catch(Exception ex){
 	   			ex.printStackTrace();	 

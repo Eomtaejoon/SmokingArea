@@ -20,7 +20,10 @@
   </environments>
   <mappers>
     <mapper resource="MemberMapper.xml"/>
+    <mapper resource="BoardMapper.xml"/>
   </mappers>
+
+  
 </configuration>
 
 

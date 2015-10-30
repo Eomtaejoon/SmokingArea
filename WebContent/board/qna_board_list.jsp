@@ -1,7 +1,7 @@
+<%@page import="net.entity.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="net.board.db.*" %>
 
 <%
 	String id=null;
@@ -58,34 +58,34 @@
 		onmouseover="this.style.backgroundColor='F8F8F8'"
 		onmouseout="this.style.backgroundColor=''">
 		<td height="23" style="font-family:Tahoma;font-size:10pt;">
-			<%=bl.getBOARD_NUM()%>
+			<%=bl.getNum()%>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="left">
-			<%if(bl.getBOARD_RE_LEV()!=0){ %>
-				<%for(int a=0;a<=bl.getBOARD_RE_LEV()*2;a++){ %>
+<%-- 			<%if(bl.getRe_lev()!=0){ %>
+				<%for(int a=0;a<=bl.getRe_lev()*2;a++){ %>
 				&nbsp;
 				<%} %>
 				¢º
 			<%}else{ %>
 				¢º
-			<%} %>
-			<a href="BoardDetailAction.bo?num=<%=bl.getBOARD_NUM()%>">
-				<%=bl.getBOARD_SUBJECT()%>
+			<%} %> --%>
+			<a href="BoardDetailAction.bo?num=<%=bl.getNum()%>">
+				<%=bl.getTitle()%>
 			</a>
 			</div>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getBOARD_ID() %></div>
+			<div align="center"><%=bl.getId()%></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getBOARD_DATE() %></div>
+			<div align="center"><%=bl.getToday() %></div>
 		</td>	
-		<td style="font-family:Tahoma;font-size:10pt;">
+<%-- 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=bl.getBOARD_READCOUNT() %></div>
-		</td>
+		</td> --%>
 	</tr>
 	<%} %>
 	<tr align=center height=20>

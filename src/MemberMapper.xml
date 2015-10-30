@@ -8,7 +8,7 @@
 	<insert id="sinup" parameterType="net.entity.MemberBean">
 		insert into S_MEMBER( num,
 		member_id, member_pw, member_phone, member_email)
-		values ( myboard_seq.nextval , #{member_id} ,
+		values ( mymember_seq.nextval , #{member_id} ,
 		#{member_pw} , #{member_phone}, #{member_email})
 	</insert>
 	

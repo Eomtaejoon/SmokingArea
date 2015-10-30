@@ -73,11 +73,10 @@ public class BoardDAO {
 			
 			while(rs.next()){
 				BoardBean board = new BoardBean();
-				board.setBOARD_NUM(rs.getInt("BOARD_NUM"));
-				board.setBOARD_ID(rs.getString("BOARD_ID"));
-				board.setBOARD_SUBJECT(rs.getString("BOARD_SUBJECT"));
-				board.setBOARD_CONTENT(rs.getString("BOARD_CONTENT"));
-				board.setBOARD_FILE(rs.getString("BOARD_FILE"));
+				board.setNum(rs.getInt("BOARD_NUM"));
+				board.setId(rs.getString("BOARD_ID"));
+				board.setTitle(rs.getString("BOARD_SUBJECT"));
+				board.setContent(rs.getString("BOARD_CONTENT"));
 				board.setBOARD_RE_REF(rs.getInt("BOARD_RE_REF"));
 				board.setBOARD_RE_LEV(rs.getInt("BOARD_RE_LEV"));
 				board.setBOARD_RE_SEQ(rs.getInt("BOARD_RE_SEQ"));

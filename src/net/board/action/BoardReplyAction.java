@@ -16,13 +16,13 @@ public class BoardReplyAction implements Action {
 	   		BoardBean boarddata=new BoardBean();
 	   		int result=0;
 	   		
-	   		boarddata.setBOARD_NUM(Integer.parseInt(request.getParameter("BOARD_NUM")));
-	   		boarddata.setBOARD_ID(request.getParameter("BOARD_ID"));
-	   		boarddata.setBOARD_SUBJECT(request.getParameter("BOARD_SUBJECT"));
-	   		boarddata.setBOARD_CONTENT(request.getParameter("BOARD_CONTENT"));
-	   		boarddata.setBOARD_RE_REF(Integer.parseInt(request.getParameter("BOARD_RE_REF")));
+	   		boarddata.setNum(Integer.parseInt(request.getParameter("BOARD_NUM")));
+	   		boarddata.setId(request.getParameter("BOARD_ID"));
+	   		boarddata.setTitle(request.getParameter("BOARD_SUBJECT"));
+	   		boarddata.setContent(request.getParameter("BOARD_CONTENT"));
+	   		/*boarddata.setBOARD_RE_REF(Integer.parseInt(request.getParameter("BOARD_RE_REF")));
 	   		boarddata.setBOARD_RE_LEV(Integer.parseInt(request.getParameter("BOARD_RE_LEV")));
-	   		boarddata.setBOARD_RE_SEQ(Integer.parseInt(request.getParameter("BOARD_RE_SEQ")));
+	   		boarddata.setBOARD_RE_SEQ(Integer.parseInt(request.getParameter("BOARD_RE_SEQ")));*/
 	   		
 	   		result=boarddao.boardReply(boarddata);
 	   		if(result==0){

@@ -11,7 +11,6 @@ import net.entity.BoardBean;
 public class BoardAddAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 throws Exception{
-		BoardDAO boarddao=new BoardDAO();
 	   	BoardBean boarddata=new BoardBean();
 	   	ActionForward forward=new ActionForward();
 	   	
@@ -28,12 +27,11 @@ public class BoardAddAction implements Action {
    			
    			multi=new MultipartRequest(request, saveFolder, fileSize, "euc-kr", new DefaultFileRenamePolicy());
    			
-   			boarddata.setBOARD_ID(multi.getParameter("BOARD_ID"));
-	   		boarddata.setBOARD_SUBJECT(multi.getParameter("BOARD_SUBJECT"));
-	   		boarddata.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
-	   		boarddata.setBOARD_FILE(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
+   			boarddata.setId(multi.getParameter("BOARD_ID"));
+	   		boarddata.setTitle(multi.getParameter("BOARD_SUBJECT"));
+	   		boarddata.setContent(multi.getParameter("BOARD_CONTENT"));
    			
-	   		result=boarddao.boardInsert(boarddata);
+	   		/*result=boarddao.boardInsert(boarddata);*/
 
 	   		if(result==false){
 	   			return null;
