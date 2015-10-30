@@ -32,10 +32,10 @@ import net.board.db.BoardDAO;
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listcount=boarddao.getListCount(); //�� ����Ʈ ���� �޾ƿ�.
-		boardlist = boarddao.getBoardList(page,limit); //����Ʈ�� �޾ƿ�.
+		int listcount=boarddao.getListCount(); 
+		boardlist = boarddao.getBoardList(page,limit); 
 		
-   		int maxpage=(int)((double)listcount/limit+0.95); //0.95�� ���ؼ� �ø� ó��.
+   		int maxpage=(int)((double)listcount/limit+0.95);
    		
    		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
    		
@@ -43,11 +43,11 @@ import net.board.db.BoardDAO;
    		
    		if (endpage>startpage+10-1) endpage=startpage+10-1;
    		
-   		request.setAttribute("page", page);		  //���� ������ ��.
-   		request.setAttribute("maxpage", maxpage); //�ִ� ������ ��.
-   		request.setAttribute("startpage", startpage); //���� �������� ǥ���� ù ������ ��.
-   		request.setAttribute("endpage", endpage);     //���� �������� ǥ���� �� ������ ��.
-		request.setAttribute("listcount",listcount); //�� ��.
+   		request.setAttribute("page", page);		  
+   		request.setAttribute("maxpage", maxpage); 
+   		request.setAttribute("startpage", startpage);
+   		request.setAttribute("endpage", endpage);     
+		request.setAttribute("listcount",listcount); 
 		request.setAttribute("boardlist", boardlist);
 		
 		
