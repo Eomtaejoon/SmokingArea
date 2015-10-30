@@ -1,4 +1,4 @@
-package net.board.db;
+package net.entity;
 
 import java.sql.Date;
 

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.db.*;
+import net.entity.BoardBean;
 
  public class BoardModifyAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 

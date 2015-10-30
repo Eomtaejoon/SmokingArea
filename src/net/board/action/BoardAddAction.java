@@ -6,7 +6,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.board.db.BoardDAO;
-import net.board.db.BoardBean;
+import net.entity.BoardBean;
 
 public class BoardAddAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 

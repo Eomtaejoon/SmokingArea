@@ -9,6 +9,7 @@
 		id=(String)session.getAttribute("id");
 	}
 	List boardList=(List)request.getAttribute("boardlist");
+	
 	int listcount=((Integer)request.getAttribute("listcount")).intValue();
 	int nowpage=((Integer)request.getAttribute("page")).intValue();
 	int maxpage=((Integer)request.getAttribute("maxpage")).intValue();

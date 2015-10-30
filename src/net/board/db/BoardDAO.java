@@ -13,6 +13,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.entity.BoardBean;
+
 public class BoardDAO {
 	Connection con;
 	PreparedStatement pstmt;
@@ -24,12 +26,12 @@ public class BoardDAO {
 	  		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 	  		con = ds.getConnection();
 		}catch(Exception ex){
-			System.out.println("DB ¿¬°á ½ÇÆÐ : " + ex);
+			System.out.println("DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + ex);
 			return;
 		}
 	}
 	
-	//±ÛÀÇ °³¼ö ±¸ÇÏ±â.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½.
 	public int getListCount() {
 		int x= 0;
 		
@@ -41,7 +43,7 @@ public class BoardDAO {
 				x=rs.getInt(1);
 			}
 		}catch(Exception ex){
-			System.out.println("getListCount ¿¡·¯: " + ex);			
+			System.out.println("getListCount ï¿½ï¿½ï¿½ï¿½: " + ex);			
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
@@ -49,7 +51,7 @@ public class BoardDAO {
 		return x;
 	}
 	
-	//±Û ¸ñ·Ï º¸±â.	
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.	
 	public List getBoardList(int page,int limit){
 		String board_list_sql="select * from "+
 		"(select rownum rnum,BOARD_NUM,BOARD_ID,BOARD_SUBJECT,"+
@@ -61,8 +63,8 @@ public class BoardDAO {
 		
 		List list = new ArrayList();
 		
-		int startrow=(page-1)*10+1; //ÀÐ±â ½ÃÀÛÇÒ row ¹øÈ£.
-		int endrow=startrow+limit-1; //ÀÐÀ» ¸¶Áö¸· row ¹øÈ£.		
+		int startrow=(page-1)*10+1; //ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ row ï¿½ï¿½È£.
+		int endrow=startrow+limit-1; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ row ï¿½ï¿½È£.		
 		try{
 			pstmt = con.prepareStatement(board_list_sql);
 			pstmt.setInt(1, startrow);
@@ -86,7 +88,7 @@ public class BoardDAO {
 			
 			return list;
 		}catch(Exception ex){
-			System.out.println("getBoardList ¿¡·¯ : " + ex);
+			System.out.println("getBoardList ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
@@ -94,7 +96,7 @@ public class BoardDAO {
 		return null;
 	}
 	
-	//±Û ³»¿ë º¸±â.
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	public BoardBean getDetail(int num) throws Exception{
 		BoardBean board = null;
 		try{
@@ -121,7 +123,7 @@ public class BoardDAO {
 			}
 			return board;
 		}catch(Exception ex){
-			System.out.println("getDetail ¿¡·¯ : " + ex);
+			System.out.println("getDetail ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
@@ -129,7 +131,7 @@ public class BoardDAO {
 		return null;
 	}
 	
-	//±Û µî·Ï.
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	public boolean boardInsert(BoardBean board){
 		int num =0;
 		String sql="";
@@ -138,7 +140,7 @@ public class BoardDAO {
 	    Random ran = new Random();
 	    String value = "";
 	    int i;
-	    for (i = 0; i < 5; i++) {     //  ¿øÇÏ´Â ³­¼öÀÇ ±æÀÌ
+	    for (i = 0; i < 5; i++) {     //  ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	       int num1 = (int) 48 + (int) (ran.nextDouble() * 74);
 	       value = value + (char) num1;
 	    }
@@ -178,7 +180,7 @@ public class BoardDAO {
 			
 			return true;
 		}catch(Exception ex){
-			System.out.println("boardInsert ¿¡·¯ : "+ex);
+			System.out.println("boardInsert ï¿½ï¿½ï¿½ï¿½ : "+ex);
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
@@ -186,7 +188,7 @@ public class BoardDAO {
 		return false;
 	}
 	
-	//±Û ´äº¯.
+	//ï¿½ï¿½ ï¿½äº¯.
 	public int boardReply(BoardBean board){
 		String board_max_sql="select max(board_num) from memberboard";
 		String sql="";
@@ -224,7 +226,7 @@ public class BoardDAO {
 			pstmt.setString(2, board.getBOARD_ID());
 			pstmt.setString(3, board.getBOARD_SUBJECT());
 			pstmt.setString(4, board.getBOARD_CONTENT());
-			pstmt.setString(5, ""); //´äÀå¿¡´Â ÆÄÀÏÀ» ¾÷·ÎµåÇÏÁö ¾ÊÀ½.
+			pstmt.setString(5, ""); //ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			pstmt.setInt(6, re_ref);
 			pstmt.setInt(7, re_lev);
 			pstmt.setInt(8, re_seq);
@@ -232,7 +234,7 @@ public class BoardDAO {
 			pstmt.executeUpdate();
 			return num;
 		}catch(SQLException ex){
-			System.out.println("boardReply ¿¡·¯ : "+ex);
+			System.out.println("boardReply ï¿½ï¿½ï¿½ï¿½ : "+ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
@@ -240,7 +242,7 @@ public class BoardDAO {
 		return 0;
 	}
 	
-	//±Û ¼öÁ¤.
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	public boolean boardModify(BoardBean modifyboard) throws Exception{
 		String sql="update memberboard set BOARD_SUBJECT=?,";
 		sql+="BOARD_CONTENT=? where BOARD_NUM=?";
@@ -253,7 +255,7 @@ public class BoardDAO {
 			pstmt.executeUpdate();
 			return true;
 		}catch(Exception ex){
-			System.out.println("boardModify ¿¡·¯ : " + ex);
+			System.out.println("boardModify ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
@@ -261,7 +263,7 @@ public class BoardDAO {
 		return false;
 	}
 	
-	//±Û »èÁ¦.
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	public boolean boardDelete(int num){
 		String board_delete_sql=
 			"delete from memberboard where BOARD_num=?";
@@ -276,7 +278,7 @@ public class BoardDAO {
 			
 			return true;
 		}catch(Exception ex){
-			System.out.println("boardDelete ¿¡·¯ : "+ex);
+			System.out.println("boardDelete ï¿½ï¿½ï¿½ï¿½ : "+ex);
 		}finally{
 			try{
 				if(pstmt!=null)pstmt.close();
@@ -286,7 +288,7 @@ public class BoardDAO {
 		return false;
 	}
 	
-	//Á¶È¸¼ö ¾÷µ¥ÀÌÆ®.
+	//ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 	public void setReadCountUpdate(int num) throws Exception{
 		String sql="update memberboard set BOARD_READCOUNT = "+
 			"BOARD_READCOUNT+1 where BOARD_NUM = "+num;
@@ -295,11 +297,11 @@ public class BoardDAO {
 			pstmt=con.prepareStatement(sql);
 			pstmt.executeUpdate();
 		}catch(SQLException ex){
-			System.out.println("setReadCountUpdate ¿¡·¯ : "+ex);
+			System.out.println("setReadCountUpdate ï¿½ï¿½ï¿½ï¿½ : "+ex);
 		}
 	}
 	
-	//±Û¾´ÀÌÀÎÁö È®ÀÎ.
+	//ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½.
 	public boolean isBoardWriter(int num,String id){
 		String board_sql=
 			"select * from memberboard where BOARD_NUM=?";
@@ -314,7 +316,7 @@ public class BoardDAO {
 				return true;
 			}
 		}catch(SQLException ex){
-			System.out.println("isBoardWriter ¿¡·¯ : "+ex);
+			System.out.println("isBoardWriter ï¿½ï¿½ï¿½ï¿½ : "+ex);
 		}
 		return false;
 	}
