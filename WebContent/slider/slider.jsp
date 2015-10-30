@@ -15,28 +15,28 @@
 		<input name="cs_anchor1" id='cs_pause1' type="radio" class='cs_anchor' >
 		<ul>
 			<div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
-				<img src="<%= request.getContextPath() %>/slider/img/1.jpg" style="width: 100%;">
+				<img src="<%= request.getContextPath() %>/slider/img/4.jpg" style="width: 100%;">
 			</div>
 			<li class='num0 img'>
-				<img src='<%= request.getContextPath() %>/slider/img/1.jpg' />
+				<img src='<%= request.getContextPath() %>/slider/img/4.jpg' />
 			</li>
 			<li class='num1 img'>
-				<img src='<%= request.getContextPath() %>/slider/img/2.jpg' alt='2' title='2' /> 
+				<img src='<%= request.getContextPath() %>/slider/img/5.jpg' alt='5' title='5' /> 
 			</li>
 			<li class='num2 img'>
-				<img src='<%= request.getContextPath() %>/slider/img/3.jpg' alt='3' title='3' /> 
+				<img src='<%= request.getContextPath() %>/slider/img/7.jpg' alt='7' title='7' /> 
 			</li>
 		
 		</ul>
 		<div class='cs_description'>
 			<label class='num0'>
-				<span class="cs_title"><span class="cs_wrapper">베스트1</span></span>
+				<span class="cs_title"><span class="cs_wrapper">동서울터미널 입구</span></span>
 			</label>
 			<label class='num1'>
-				<span class="cs_title"><span class="cs_wrapper">베스트2</span></span>
+				<span class="cs_title"><span class="cs_wrapper">구로역</span></span>
 			</label>
 			<label class='num2'>
-				<span class="cs_title"><span class="cs_wrapper">베스트3</span></span>
+				<span class="cs_title"><span class="cs_wrapper">xx동 xx아파트</span></span>
 			</label>
 		</div>
 		

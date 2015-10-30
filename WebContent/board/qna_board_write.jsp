@@ -34,18 +34,6 @@
 				<td><input name="BOARD_SUBJECT" type="text" size="50"
 					maxlength="100" value="" /></td>
 			</tr>
-			<tr>
-	            <td style="font-family: 돋음; font-size: 12" height="16">
-	               <div align="center">분 류</div>
-	            </td>
-	            <td style="font-family: 돋음; font-size: 12">
-	            <input name="SELECT" type="checkbox" value="치킨" />치킨
-	            <input name="SELECT" type="checkbox" value="피자" />피자
-	            <input name="SELECT" type="checkbox" value="중화" />중화
-	            <input name="SELECT" type="checkbox" value="족발" />족발
-	            <input name="SELECT" type="checkbox" value="찜닭" />찜닭
-	            <input name="SELECT" type="checkbox" value="기타" />기타</td>
-	        </tr>
 			
 			<tr>
 				<td style="font-family: 돋음; font-size: 12">
