@@ -44,7 +44,7 @@
 			</tr>
 			<tr>
 				<td style="font-family: 돋음; font-size: 12">
-					<div align="center">파일 첨부</div>
+					<div align="center">이미지 첨부</div>
 				</td>
 				<td><input name="BOARD_FILE" type="file" /></td>
 			</tr>
