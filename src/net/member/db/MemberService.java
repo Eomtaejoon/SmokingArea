@@ -15,11 +15,12 @@ public class MemberService {
 	@SuppressWarnings("finally")
 	public boolean sinup(MemberBean member){
 		SqlSession session = MySQLSessionFactory.openSession();
-		//코드 패턴
+		//肄붾뱶 �뙣�꽩
 		try{
-			//id값 반드시 일치
+			//id媛� 諛섎뱶�떆 �씪移�
 			int n = session.insert("memberMappeing.sinup", member);
-			// n값은 작용된 레코드
+			System.out.println(n);
+			// n媛믪� �옉�슜�맂 �젅肄붾뱶
 			if(n==1){
 				session.commit();
 				
@@ -34,10 +35,10 @@ public class MemberService {
 	public int login(String member_id){
 		int result = 0;
 		SqlSession session = MySQLSessionFactory.openSession();
-		//코드 패턴
+		//肄붾뱶 �뙣�꽩
 		MemberBean bean = null;
 		try{
-			//id값 반드시 일치
+			//id媛� 諛섎뱶�떆 �씪移�
 			bean = session.selectOne("memberMappeing.login", member_id);
 			
 			if(bean!=null){

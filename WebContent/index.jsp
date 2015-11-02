@@ -24,7 +24,7 @@
 
 		<div class="row" id="home">
 			<div class="large-3 columns">
-				<img src="http://placehold.it/400x100&text=Logo" />
+				<img src="img/logo.gif" />
 			</div>
 			<%=id %> 님 접속
 		</div>
@@ -40,17 +40,17 @@
 
 		<div class="row">
 			<div class="large-4 columns" id="best">
-				<img src="img/best1.jpg" />
+				<img src="img/1.jpg" />
 				<h4>Best content section.</h4>
 				<p>db 좋아요 누계 1순위</p>
 			</div>
 			<div class="large-4 columns">
-				<img src="img/best1.jpg" />
+				<img src="img/2.jpg" />
 				<h4>Best content section.</h4>
 				<p>db 좋아요 누계 2순위</p>
 			</div>
 			<div class="large-4 columns">
-				<img src="img/best1.jpg" />
+				<img src="img/3.jpg" />
 				<h4>Best content section.</h4>
 				<p>db 좋아요 누계 3순위</p>
 			</div>

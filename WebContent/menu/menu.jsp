@@ -22,7 +22,7 @@
 					<a href="#best"><li>BEST <i class="fa fa-thumbs-up fa-fw"></i></li></a>
 					<a href="#map"><li>MAP <i class="fa fa-map-marker fa-fw"></i></li></a>
 					<a href="#event"><li>EVENT <i class="fa fa-gift fa-fw"></i></li></a>
-					<a href="<%= request.getContextPath() %>/BoardList.bo"><li>BOARD <i class="fa fa-pencil-square-o fa-fw"></i></li></a>
+					<a href="<%= request.getContextPath() %>/contents.jsp"><li>BOARD <i class="fa fa-pencil-square-o fa-fw"></i></li></a>
 					<a href="#etc"><li class='sub-menu'>ETC <i class="fa fa-question-circle fa-fw"></i></a>
 					<ul>
 					<li><a>금연도우미</a></li>

@@ -25,12 +25,6 @@
 <body>
 <!-- 게시판 리스트 -->
 <table width=570 border="0" cellpadding="0" cellspacing="0">
-	<tr align="center" valign="middle">
-		<td colspan="4">MVC 게시판</td>
-		<td align=right>
-			<font size=2>글 개수 : ${listcount }</font>
-		</td>
-	</tr>
 	
 	<tr align="center" valign="middle" bordercolor="#333333">
 		<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
@@ -117,7 +111,7 @@
 			<%if(id!=null && id.equals("admin")){%>
 				<a href="MemberListAction.me">[회원관리]</a>
 			<%}%>
-	   		<a href="BoardWrite.bo">[글쓰기]</a>
+	   		<a href="<%=request.getContextPath() %>/SE/SmartEditor2.html">[글쓰기]</a>
 		</td>
 	</tr>
 </table>

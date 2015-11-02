@@ -7,7 +7,8 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login/normalize.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/login/style.css">
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/login/style.css">
+<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/css/login/style_mob.css">
 </head>
 <body>
 
@@ -28,7 +29,7 @@
 							<input type="text" placeholder="id" name="MEMBER_ID" maxlength="10"/>
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="password" name="MEMBER_PW" maxlength="14"/>
+							<input type="password" placeholder="password" name="MEMBER_PW" maxlength="10"/>
 						</div>
 						<div class="form-group">
 							<input type="text" placeholder="phone" name="MEMBER_PHONE" maxlength="11" />
@@ -53,7 +54,7 @@
 						</div>
 						<div class="form-group">
 							<label for="password" class="form-label" > password : </label> 
-							<input type="password" name="MEMBER_PW" maxlength="14"/>
+							<input type="password" name="MEMBER_PW" maxlength="10"/>
 						</div>
 						
 						<button id="goRight" type="button" class="off"> Sign Up </button>

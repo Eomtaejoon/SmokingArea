@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	
+<%
+	/* 세션  연결 */
+	String id = (String)session.getAttribute("id");
+	boolean login = id == null ? false : true;
+%>	
 <html>
 <head>
 <meta charset="utf-8" />
@@ -20,6 +26,7 @@
 			<div class="large-3 columns">
 				<h1>
 					<img src="http://placehold.it/400x100&text=Logo" />
+					<%=id %> 님 접속
 				</h1>
 			</div>
 		</div>
@@ -31,6 +38,9 @@
 				<p>db 좋아요 누계 1순위</p>
 			</div>
 		</div>
+		
+		<iframe src="/last_project/BoardList.bo" frameboarder="0" scolling="no" width="800px" height="600px" style="border:hidden;"></iframe>
+		
 
 		<div class="row">
 			<div id="map">

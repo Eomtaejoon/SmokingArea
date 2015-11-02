@@ -27,36 +27,34 @@ import net.member.db.MemberService;
    				
 		List boardlist=new ArrayList();
 		
-	  	int page=1;  //湲곕낯�쟻�쑝濡� 1�럹�씠吏� 遺��꽣 �떆�옉.
-		int limit=5; //�럹�씠吏��떦 媛쒖닔 �젣�븳.
+	  	int page=1;  //기본적으로 1페이지 부터 시작.
+		int limit=5; //페이지당 개수 제한.
 		
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listcount=boarddao.getListCount(); 
-		boardlist = boarddao.getBoardList(page,limit); 
-   		int maxpage=(int)((double)listcount/limit+0.95);
+		
 		BoardService service = new BoardService();
 		
-		int listcount=service.selectCount(); //珥� 由ъ뒪�듃 �닔
+		int listcount=service.selectCount(); //총 리스트 수
 		
-		boardlist = service.selectByPage(page,limit); //�떎吏덉쟻�씤 由ъ뒪�듃 諛쏆븘�삤�뒗
+		boardlist = service.selectByPage(page,limit); //실질적인 리스트 받아오는
 		
-		int maxpage=(int)((double)listcount/limit+0.95); //�쁽�옱 �럹�씠吏��뿉 蹂댁뿬以� �떆�옉 �럹�씠吏� �닔
-   		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;//�쁽�옱 �럹�씠吏��뿉 蹂댁뿬以� 留덉�留� �럹�씠吏� �닔
+		//총 페이지 수
+		int maxpage=(int)((double)listcount/limit+0.95); //현재 페이지에 보여줄 시작 페이지 수
+   		
+   		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;//현재 페이지에 보여줄 마지막 페이지 수
+   		
    		int endpage = maxpage;
+   		
    		if (endpage>startpage+10-1) endpage=startpage+10-1;
-   		request.setAttribute("page", page);		  
-   		request.setAttribute("maxpage", maxpage); 
-   		request.setAttribute("startpage", startpage);
-   		request.setAttribute("endpage", endpage);     
-		request.setAttribute("listcount",listcount); 
-   		request.setAttribute("page", page);		  //�쁽�옱 �럹�씠吏� �닔
-   		request.setAttribute("maxpage", maxpage); // 理쒕� �럹�씠吏� �닔
-   		request.setAttribute("startpage", startpage); //�쁽�옱 �럹�씠吏��뿉 �몴�떆�븷 泥� �럹�씠吏� �닔
-   		request.setAttribute("endpage", endpage);     //�쁽�옱 �럹�씠吏��뿉 �몴�떆�븷 �걹 �럹�씠吏� �닔
-		request.setAttribute("listcount",listcount);  //湲� �닔.
+   		
+   		request.setAttribute("page", page);		  //현재 페이지 수
+   		request.setAttribute("maxpage", maxpage); // 최대 페이지 수
+   		request.setAttribute("startpage", startpage); //현재 페이지에 표시할 첫 페이지 수
+   		request.setAttribute("endpage", endpage);     //현재 페이지에 표시할 끝 페이지 수
+		request.setAttribute("listcount",listcount);  //글 수.
 		request.setAttribute("boardlist", boardlist);
 		
 		

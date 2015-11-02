@@ -14,7 +14,7 @@
 		<input name="cs_anchor1" id='cs_play1' type="radio" class='cs_anchor' checked>
 		<input name="cs_anchor1" id='cs_pause1' type="radio" class='cs_anchor' >
 		<ul>
-			<div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
+			<div style="width: 100%; max-width: 800px; max-height: 450px; visibility: hidden; font-size: 0px; line-height: 0;">
 				<img src="<%= request.getContextPath() %>/slider/img/4.jpg" style="width: 100%;">
 			</div>
 			<li class='num0 img'>

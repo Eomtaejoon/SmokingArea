@@ -32,7 +32,7 @@ public class MemberJoinAction implements Action{
 	   		
 	   		
 	   		if(result==false){
-	   			System.out.println("íšŒì›ê°€ì… ì‹¤íŒ¨");
+	   			System.out.println("·Î±×ÀÎ½ÇÆĞ");
 		   		return null;
 		   	}
 	   		

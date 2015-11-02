@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 		 String RequestURI=request.getRequestURI();
 		 String contextPath=request.getContextPath();
 		 String command=RequestURI.substring(contextPath.length());
+		 
+		 System.out.println(command);
+		 
 		 ActionForward forward=null;
 		 Action action=null;
 		  
@@ -23,7 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 		   if(command.equals("/BoardWrite.bo")){
 			   forward=new ActionForward();
 			   forward.setRedirect(false);
-			   forward.setPath("/board/qna_board_write.jsp");
+			  /* forward.setPath("/board/qna_board_write.jsp");*/
+			   forward.setPath("/SE/SmartEditor2.html");
 		   }else if(command.equals("/BoardReplyAction.bo")){
 			   action = new BoardReplyView();
 			   try{
