@@ -25,9 +25,9 @@ public class MemberLoginAction implements Action{
 	   		member.setMember_pw(request.getParameter("MEMBER_PW"));
 	   		
 	   		MemberService service = new MemberService();
-	   		System.out.println("loginaction= "+ request.getParameter("MEMBER_ID"));
 	   		
-	   		result=(service.login(member.getMember_id()));
+	   		result=service.login(member.getMember_id());
+	   		
 	   		/*result=memberdao.isMember(member);*/
 	   		
 	   		

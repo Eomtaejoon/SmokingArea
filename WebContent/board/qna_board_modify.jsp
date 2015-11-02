@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
-<%@ page import="net.board.db.*" %>
+<%@ page import="net.entity.*" %>
 <%
 	String id=(String)session.getAttribute("id");
 	BoardBean board = (BoardBean)request.getAttribute("boarddata");

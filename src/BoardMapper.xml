@@ -2,22 +2,18 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="memberMappeing">
+<mapper namespace="boardMappeing">
 
-	<!-- 회원가입 -->
-	<insert id="sinup" parameterType="net.entity.MemberBean">
-		insert into S_MEMBER( num,
-		member_id, member_pw, member_phone, member_email)
-		values ( mymember_seq.nextval , #{member_id} ,
-		#{member_pw} , #{member_phone}, #{member_email})
-	</insert>
-	
-	<!-- 특정 레코드 검색 -->
-	<select id="login" parameterType="string" resultType="net.entity.MemberBean">
-		select member_pw from S_MEMBER
-		where member_id = #{member_id}
+	<!-- boardCount -->
+	<select id="boardCount" resultType="int">
+		select count(*) from board
 	</select>
 	
+	<select id="boardByPage" resultType="net.entity.BoardBean">
+		select * from board
+		order
+		by num desc
+	</select>
 	
 	
 <!-- 
@@ -57,11 +53,7 @@
 
 
 	num 레코드 검색
-	<select id="boardByPage" resultType="com.entity.BoardBean">
-		select * from myboard
-		order
-		by num asc
-	</select>
+
 
 
 	<select id="boardCount" resultType="int">

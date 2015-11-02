@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.db.*;
+import net.entity.BoardBean;
 
  public class BoardModifyAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
@@ -33,10 +34,10 @@ import net.board.db.*;
 		 }
 		 
 		 try{
-			 boarddata.setBOARD_NUM(num);
-			 boarddata.setBOARD_SUBJECT(
+			 boarddata.setNum(num);
+			 boarddata.setTitle(
 					 			request.getParameter("BOARD_SUBJECT"));
-			 boarddata.setBOARD_CONTENT(
+			 boarddata.setContent(
 					 			request.getParameter("BOARD_CONTENT"));
 			 
 			 result = boarddao.boardModify(boarddata);
@@ -48,7 +49,7 @@ import net.board.db.*;
 		   	 
 		   	 forward.setRedirect(true);
 		   	 forward.setPath(
-		   			 	"./BoardDetailAction.bo?num="+boarddata.getBOARD_NUM());
+		   			 	"./BoardDetailAction.bo?num="+boarddata.getNum());
 		   	 return forward;
 	   	 }catch(Exception ex){
 	   			ex.printStackTrace();	 
