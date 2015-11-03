@@ -72,6 +72,7 @@ import javax.servlet.http.HttpServletResponse;
 			   }
 		   }else if(command.equals("/BoardList.bo")){
 			   action = new BoardListAction();
+			   
 			   try{
 				   forward=action.execute(request, response);
 			   }catch(Exception e){

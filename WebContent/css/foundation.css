@@ -2,6 +2,12 @@
 	margin-left: 160px;
 }
 
+iframe {
+	width: 100%;
+	height: 100%;
+	border: hidden ;
+}
+
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 

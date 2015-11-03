@@ -30,17 +30,16 @@
 				</h1>
 			</div>
 		</div>
-
+		
+		<iframe src="/last_project/BoardList.bo"></iframe>
+		
 		<div class="row">
-			<div class="large-4 columns" id="best">
+			<div id="best">
 				<img src="img/best1.jpg" />
 				<h4>Best content section.</h4>
 				<p>db 좋아요 누계 1순위</p>
 			</div>
 		</div>
-		
-		<iframe src="/last_project/BoardList.bo" frameboarder="0" scolling="no" width="800px" height="600px" style="border:hidden;"></iframe>
-		
 
 		<div class="row">
 			<div id="map">
