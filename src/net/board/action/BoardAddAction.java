@@ -6,33 +6,37 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import net.board.db.BoardDAO;
+import net.board.db.BoardService;
 import net.entity.BoardBean;
 
 public class BoardAddAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 throws Exception{
-	   	BoardBean boarddata=new BoardBean();
 	   	ActionForward forward=new ActionForward();
+	   	BoardBean boardbean = new BoardBean();
 	   	
    		String saveFolder="C:\\Users\\12-718-8\\git\\SmokingArea\\WebContent\\boardupload\\";
    		
-   		int fileSize=5*1024*1024;
+   		int fileSize=5*1024*1024; 
    		
    		boolean result=false;
    		
    		try{
    			MultipartRequest multi=null;
-
+   			
    			
    			
    			multi=new MultipartRequest(request, saveFolder, fileSize, "euc-kr", new DefaultFileRenamePolicy());
-   			
-   			boarddata.setId(multi.getParameter("BOARD_ID"));
-	   		boarddata.setTitle(multi.getParameter("BOARD_SUBJECT"));
-	   		boarddata.setContent(multi.getParameter("BOARD_CONTENT"));
+   			   			
+   			boardbean.setB_id(multi.getParameter("BOARD_ID"));
+   			boardbean.setTitle(multi.getParameter("title"));
+   			boardbean.setContent(multi.getParameter("content"));
    			
 	   		/*result=boarddao.boardInsert(boarddata);*/
-
+	   		
+   			BoardService service = new BoardService(); //�쒕퉬�ㅼ깮��
+	   		result = service.insert(boardbean); 
+	   				
 	   		if(result==false){
 	   			return null;
 	   		}

@@ -19,7 +19,7 @@
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
 		<table cellpadding="0" cellspacing="0">
 			<tr align="center" valign="middle">
-				<td colspan="5">MVC °Ô½ÃÆÇ</td>
+				<td colspan="5">°Ô½ÃÆÇ</td>
 			</tr>
 			<tr>
 				<td style="font-family: µ¸À½; font-size: 12" height="16">
@@ -31,7 +31,7 @@
 				<td style="font-family: µ¸À½; font-size: 12" height="16">
 					<div align="center">Á¦ ¸ñ</div>
 				</td>
-				<td><input name="BOARD_SUBJECT" type="text" size="50"
+				<td><input name="title" type="text" size="50"
 					maxlength="100" value="" /></td>
 			</tr>
 			
@@ -39,7 +39,7 @@
 				<td style="font-family: µ¸À½; font-size: 12">
 					<div align="center">³» ¿ë</div>
 				</td>
-				<td><textarea name="BOARD_CONTENT" cols="67" rows="15"></textarea>
+				<td><textarea name="content" cols="67" rows="15"></textarea>
 				</td>
 			</tr>
 			<tr>

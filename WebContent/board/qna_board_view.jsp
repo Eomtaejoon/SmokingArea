@@ -1,8 +1,8 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
 <%@ page import="net.entity.*" %>
 <%
-	BoardBean board = (BoardBean)request.getAttribute("boarddata");
-	System.out.print(board.getBOARD_CHAT());
+	BoardBean board = (BoardBean)request.getAttribute("boardlist");
 %>
 
 <html>
@@ -14,7 +14,7 @@
 <!-- 게시판 수정 -->
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">MVC 게시판</td>
+		<td colspan="5">게시판 뷰</td>
 	</tr>
 	
 	<tr>
@@ -23,7 +23,7 @@
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
-		<%="<"%><%=board.getBOARD_YASIK() %><%=">"%><%=board.getBOARD_SUBJECT()%>
+		<%=board.getTitle()%>
 		</td>
 	</tr>
 	
@@ -41,12 +41,12 @@
 			<table border=0 width=200 height=100 style="table-layout:fixed">
 				<tr>
 					<td valign=top style="font-family:돋음; font-size:12">
-					<%=board.getBOARD_CONTENT() %>
+					<%=board.getContent() %>
 					</td>
 				</tr>
 			</table>
 		</td>
-		
+<%-- 		
 		<td>
 			<table border=0 width=200 height=100>
 				<tr>
@@ -55,9 +55,9 @@
 					</td>
 				</tr>
 			</table>
-		</td>		
+		</td>	 --%>	
 	</tr>
-	<tr>
+<%-- 	<tr>
 		<td style="font-family:돋음; font-size:12">
 			<div align="center">첨부파일</div>
 		</td>
@@ -69,7 +69,7 @@
 		</a>
 		<%} %>
 		</td>
-	</tr>
+	</tr> --%>
 	<tr bgcolor="cccccc">
 		<td colspan="3" style="height:1px;"></td>
 	</tr>
@@ -77,13 +77,13 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="./BoardReplyAction.bo?num=<%=board.getBOARD_NUM() %>">
+			<a href="./BoardReplyAction.bo?num=<%=board.getNum() %>">
 			[답변]
 			</a>&nbsp;&nbsp;
-			<a href="./BoardModify.bo?num=<%=board.getBOARD_NUM() %>">
+			<a href="./BoardModify.bo?num=<%=board.getNum() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="./BoardDeleteAction.bo?num=<%=board.getBOARD_NUM() %>"
+			<a href="./BoardDeleteAction.bo?num=<%=board.getNum() %>"
 			>
 			[삭제]
 			</a>&nbsp;&nbsp;

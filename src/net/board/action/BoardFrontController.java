@@ -26,8 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 		   if(command.equals("/BoardWrite.bo")){
 			   forward=new ActionForward();
 			   forward.setRedirect(false);
-			  /* forward.setPath("/board/qna_board_write.jsp");*/
-			   forward.setPath("/SE/SmartEditor2.html");
+			   forward.setPath("/board/qna_board_write.jsp");
 		   }else if(command.equals("/BoardReplyAction.bo")){
 			   action = new BoardReplyView();
 			   try{

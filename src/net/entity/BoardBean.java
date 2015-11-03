@@ -12,11 +12,13 @@ public class BoardBean {
 	private int hit;
 	private String img;
 	private int re_lev;
+	private int readcount;
 	public BoardBean(){
 		super();
 	}
 	
-	public BoardBean(int num,String title ,String content ,String b_id ,Date today ,String gps,int hit,String img,int re_lev ){
+	public BoardBean(int num,String title ,String content ,String b_id ,
+			Date today ,String gps,int hit,String img,int re_lev ,int readcount){
 		super();
 		this.num = num;
 		this.title = title;
@@ -27,6 +29,7 @@ public class BoardBean {
 		this.hit = hit;
 		this.img = img;
 		this.re_lev = re_lev;
+		this.readcount = readcount;
 	}
 
 	public int getNum() {
@@ -53,14 +56,6 @@ public class BoardBean {
 		this.content = content;
 	}
 	
-	public String getId() {
-		return b_id;
-	}
-
-	public void setId(String id) {
-		this.b_id = id;
-	}
-
 	public String getGps() {
 		return gps;
 	}
@@ -99,6 +94,23 @@ public class BoardBean {
 
 	public void setToday(Date today) {
 		this.today = today;
+	}
+	
+
+	public String getB_id() {
+		return b_id;
+	}
+
+	public void setB_id(String b_id) {
+		this.b_id = b_id;
+	}
+
+	public int getReadcount() {
+		return readcount;
+	}
+
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
 	}
 
 	public String toString(){
