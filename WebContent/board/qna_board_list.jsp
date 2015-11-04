@@ -1,5 +1,5 @@
 <%@page import="net.entity.BoardBean"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 
@@ -20,22 +20,24 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_style.css">
+<script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_action.css">
 </head>
 
 <body>
-<!-- °Ô½ÃÆÇ ¸®½ºÆ® -->
+<!-- ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ -->
 <table width=570 border="0" cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td align="left">
-			<font size=2>±Û °³¼ö : ${listcount }</font>
+			<font size=2>ê¸€ ê°œìˆ˜ : ${listcount }</font>
 		</td>
 	</tr>
 	<tr align="left">
 		<td colspan="5">
 			<%if(id!=null && id.equals("admin")){%>
-				<a href="MemberListAction.me">[È¸¿ø°ü¸®]</a>
+				<a href="MemberListAction.me">[íšŒì›ê´€ë¦¬]</a>
 			<%}%>
-	   		<a href="BoardWrite.bo">[±Û¾²±â]</a>
+	   		<a href="BoardWrite.bo">[ê¸€ì“°ê¸°]</a>
 		</td>
 	</tr>
 </table>
@@ -44,36 +46,34 @@
 		for(int i=0;i<boardList.size();i++){
 			BoardBean bl=(BoardBean)boardList.get(i);
 	%>
-	<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
-	<div class="container">
-		<div class="box">
-			<div class="header">
-				Á¦¸ñ : <%=bl.getTitle()%>&nbsp;&nbsp;
-				±Û¾´ÀÌ : <%=bl.getB_id()%> 
-				<div class="date"><%=bl.getToday()%></div>
-			</div>
-			<div class="body"><%=bl.getContent()%></div>
-			<div class="links">
-				<a href="#">Link</a>
-			</div>
-			<div class="footer">
-			<font size=2>
-				<a href="./BoardReplyAction.bo?num=<%=bl.getNum()%>">[´äº¯] </a>&nbsp;&nbsp;
-				<a href="./BoardModify.bo?num=<%=bl.getNum()%>">[¼öÁ¤] </a>&nbsp;&nbsp;
-				<a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">[»èÁ¦] </a>
-			</font>
-			</div>
-		</div>
-	</div>
-	<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+	<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
+<article>
+    
+    <input type="checkbox" id="read_more" role="button">
+    <label for="read_more" onclick=""><span>Read More</span><span>Hide This Shit!</span></label>     
+      
+    <figure>
+        <img src="http://cssdeck.com/uploads/media/items/8/8rDcElm.jpg" alt="I'm an owl" />
+    </figure>
+
+    <section>
+    <p>Owls are a group of birds that belong to the order Strigiformes, constituting 200 extant bird of prey species. Most are solitary and nocturnal, with some exceptions (e.g. the Northern Hawk Owl). </p>
+    </section>    
+	<section>
+    <p>Owls hunt mostly small mammals, insects, and other birds, although a few species specialize in hunting fish. They are found in all regions of the Earth except Antarctica, most of Greenland and some remote islands. Though owls are typically solitary, the literary collective noun for a group of owls is a parliament. Owls are characterized by their small beaks and wide faces, and are divided into two families: the typical owls, Strigidae; and the barn-owls, Tytonidae.</p>
+    <p>Owls have large forward-facing eyes and ear-holes; a hawk-like beak; a flat face; and usually a conspicuous circle of feathers, a facial disc, around each eye. The feathers making up this disc can be adjusted in order to sharply focus sounds that come from varying distances onto the owls' asymmetrically placed ear cavities. Most birds of prey sport eyes on the sides of their heads, but the stereoscopic nature of the owl's forward-facing eyes permits the greater sense of depth perception necessary for low-light hunting. Although owls have binocular vision, their large eyes are fixed in their sockets â€” as are those of other birds â€” so they must turn their entire head to change views. Owls can rotate their heads and necks as much as 270 degrees in either direction. As owls are farsighted, they are unable to see clearly anything within a few centimeters of their eyes. Caught prey can be felt by owls with the use of filoplumes â€” like feathers on the beak and feet that act as "feelers". Their far vision, particularly in low light, is exceptionally good.</p>
+	</section>
+
+</article>
+	<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 	
 	<%} %>
 	<tr align="left" height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
 			<%if(nowpage<=1){ %>
-			[ÀÌÀü]&nbsp;
+			[ì´ì „]&nbsp;
 			<%}else{ %>
-			<a href="BoardList.bo?page=<%=nowpage-1 %>">[ÀÌÀü]</a>&nbsp;
+			<a href="BoardList.bo?page=<%=nowpage-1 %>">[ì´ì „]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
@@ -86,9 +86,9 @@
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
-			[´ÙÀ½]
+			[ë‹¤ìŒ]
 			<%}else{ %>
-			<a href="BoardList.bo?page=<%=nowpage+1 %>">[´ÙÀ½]</a>
+			<a href="BoardList.bo?page=<%=nowpage+1 %>">[ë‹¤ìŒ]</a>
 			<%} %>
 		</td>
 	</tr>
