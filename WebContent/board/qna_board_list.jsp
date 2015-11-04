@@ -83,9 +83,9 @@
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=bl.getToday() %></div>
 		</td>	
-<%-- 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getBOARD_READCOUNT() %></div>
-		</td> --%>
+ 		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getReadcount() %></div>
+		</td>
 	</tr>
 	<%} %>
 	<tr align=center height=20>

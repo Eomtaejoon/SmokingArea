@@ -32,9 +32,13 @@ public class BoardAddAction implements Action {
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));
    			
+   			System.out.println(multi.getParameter("BOARD_ID"));
+   			System.out.println(multi.getParameter("title"));
+   			System.out.println(multi.getParameter("content"));
+   			
 	   		/*result=boarddao.boardInsert(boarddata);*/
 	   		
-   			BoardService service = new BoardService(); //�쒕퉬�ㅼ깮��
+   			BoardService service = new BoardService(); //서비스 객체 생성
 	   		result = service.insert(boardbean); 
 	   				
 	   		if(result==false){
