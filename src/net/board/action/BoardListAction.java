@@ -28,7 +28,7 @@ import net.member.db.MemberService;
 		List boardlist=new ArrayList();
 		
 	  	int page=1;  //기본적으로 1페이지 부터 시작.
-		int limit=5; //페이지당 개수 제한.
+		int limit=3; //페이지당 개수 제한.
 		
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
@@ -44,11 +44,11 @@ import net.member.db.MemberService;
 		//총 페이지 수
 		int maxpage=(int)((double)listcount/limit+0.95); //현재 페이지에 보여줄 시작 페이지 수
    		
-   		int startpage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;//현재 페이지에 보여줄 마지막 페이지 수
+   		int startpage = (((int) ((double)page / 3 + 0.9)) - 1) * 3 + 1;//현재 페이지에 보여줄 마지막 페이지 수
    		
    		int endpage = maxpage;
    		
-   		if (endpage>startpage+10-1) endpage=startpage+10-1;
+   		if (endpage>startpage+3-1) endpage=startpage+3-1;
    		
    		request.setAttribute("page", page);		  //현재 페이지 수
    		request.setAttribute("maxpage", maxpage); // 최대 페이지 수

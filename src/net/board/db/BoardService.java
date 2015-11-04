@@ -31,7 +31,7 @@ public class BoardService {
 		SqlSession session = MySQLSessionFactory.openSession();
 		// list객체 생성
 		List<BoardBean> list = null;
-		int startrow=(page-1)*5;
+		int startrow=(page-1)*3;
 		try {
 			// 페이징
 			list = session.selectList("boardMappeing.boardByPage",
