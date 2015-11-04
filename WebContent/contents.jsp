@@ -36,14 +36,6 @@
 		</div>
 		
 		<div class="row">
-			<div id="best">
-				<img src="img/best1.jpg" />
-				<h4>Best content section.</h4>
-				<p>db 좋아요 누계 1순위</p>
-			</div>
-		</div>
-
-		<div class="row">
 			<div id="map">
 				<jsp:include page="map/daummap.jsp" flush="false"></jsp:include>
 			</div>

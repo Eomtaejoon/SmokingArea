@@ -24,6 +24,7 @@
 		<div class="head">
 			<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요">
 			<button class="btn btn-default"><i class="fa fa-picture-o" style="font-size: 18px" title='이미지 첨부'></i></button>
+			<button class="btn btn-default"><i class="fa fa-map" style="font-size: 18px" title='위치저장'></i></button>
 			<!-- 이미지 점부 기능 -->
 		</div>
 		<textarea name="content" placeholder=" 악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다."></textarea>
