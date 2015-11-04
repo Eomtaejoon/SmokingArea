@@ -5,60 +5,29 @@
 
 <html>
 <head>
-<title>MVC 게시판</title>
 <script language="javascript">
 	function addboard() {
 		boardform.submit();
 	}
 </script>
+<link rel='stylesheet' href='<%= request.getContextPath() %>/board/css/strap.css'>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css">
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/board/css/style.css">
+<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/board/css/style_mob.css">
 </head>
 <body>
 	<!-- 게시판 등록 -->
 	<form action="BoardAddAction.bo" method="post"
 		enctype="multipart/form-data" name="boardform">
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
-		<table cellpadding="0" cellspacing="0">
-			<tr align="center" valign="middle">
-				<td colspan="5">게시판</td>
-			</tr>
-			<tr>
-				<td style="font-family: 돋음; font-size: 12" height="16">
-					<div align="center">글쓴이</div>
-				</td>
-				<td><%=id%></td>
-			</tr>
-			<tr>
-				<td style="font-family: 돋음; font-size: 12" height="16">
-					<div align="center">제 목</div>
-				</td>
-				<td><input name="title" type="text" size="50"
-					maxlength="100" value="" /></td>
-			</tr>
-			
-			<tr>
-				<td style="font-family: 돋음; font-size: 12">
-					<div align="center">내 용</div>
-				</td>
-				<td><textarea name="content" cols="67" rows="15"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td style="font-family: 돋음; font-size: 12">
-					<div align="center">이미지 첨부</div>
-				</td>
-				<td><input name="BOARD_FILE" type="file" /></td>
-			</tr>
-			<tr bgcolor="cccccc">
-				<td colspan="2" style="height: 1px;"></td>
-			</tr>
-			<tr>
-				<td colspan="2">&nbsp;</td>
-			</tr>
-			<tr align="center" valign="middle">
-				<td colspan="5"><a href="javascript:addboard()">[등록]</a>&nbsp;&nbsp;
-					<a href="javascript:history.go(-1)">[뒤로]</a></td>
-			</tr>
-		</table>
+		<div class="writeform">
+		<div class="head">
+			<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요">
+			<button class="btn btn-default"><i class="fa fa-picture-o" style="font-size: 18px" title='이미지 첨부'></i></button>
+		</div>
+		<textarea name="contents" placeholder=" 악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다."></textarea>
+		<button class="btn btn-success" type="submit">글저장</button>
+	</div>
 	</form>
 	<!-- 게시판 등록 -->
 </body>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="<%= request.getContextPath() %>/menu/css/normalize.css">
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css"">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css">
 
 </head>
 <body>

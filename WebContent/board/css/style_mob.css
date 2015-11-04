@@ -1,0 +1,114 @@
+.writeform {
+	width: 100%;
+	height: 180px;
+	max-width: 600px;
+}
+
+input.title {
+	width: 150px;		
+}
+
+.head {
+	margin-bottom: 0px;
+}
+
+textarea {
+	width: 100%;
+	height: 100%;
+	resize: none;
+}
+
+body {
+  margin: 30px;
+}
+
+.container {
+  background-color: #fff;
+  padding: 40px 80px;
+  border-radius: 8px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0 0 5px 0;
+  background: -webkit-linear-gradient(#fff, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+h4 {
+  color: #a990cc;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 35px 0;
+}
+
+input[type=text]:focus {
+  border-color: #9ab1c8;
+}
+
+.btn.btn-default {
+  outline: none !important;
+}
+.btn.btn-default:active {
+  background-color: #617374 !important;
+}
+
+/* Editor styles */
+.form-group {
+  margin-bottom: 10px;
+}
+.form-group .scribe {
+  color: #8B97A3;
+  overflow-y: auto;
+  min-height: 150px;
+}
+.form-group .scribe:focus {
+  border-color: #dce4ec !important;
+}
+
+/* Lets hide the textarea field */
+.scribe-html {
+  display: none;
+}
+
+/* Toolbar styles */
+.btn-group {
+  margin-bottom: 10px;
+  /* Lets round the top right corner of the comment / blockquote button on mobile */
+  /* this is the toolbar divider */
+}
+.btn-group .btn {
+  border: none;
+}
+.btn-group .btn[disabled] {
+  opacity: 1;
+  background-color: #9FAFB0;
+  color: #C7D4D5;
+  cursor: not-allowed;
+}
+@media (max-width: 768px) {
+  .btn-group .xs-last {
+    border-radius: 0 4px 4px 0 !important;
+  }
+}
+.btn-group span.space {
+  border-left: 1px solid #869898;
+  border-right: 1px solid #9FAFB0;
+  display: block;
+  float: left;
+  height: 41px;
+}
+
+/* Lets dress up the save button */
+.btn-success {
+  background: #5c4084;
+  border: none;
+}
+.btn-success:hover {
+  background: #4e366f;
+}
