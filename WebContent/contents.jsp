@@ -5,7 +5,8 @@
 	/* 세션  연결 */
 	String id = (String)session.getAttribute("id");
 	boolean login = id == null ? false : true;
-%>	
+%>
+
 <html>
 <head>
 <meta charset="utf-8" />

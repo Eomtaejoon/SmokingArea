@@ -17,6 +17,7 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet implem
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
+		
 		MemberService service = new MemberService();
 		
 		
@@ -28,7 +29,12 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet implem
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/logindex.jsp");
-		
+
+		} else if (command.equals("/contents.me")) { /* 로그인 */
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/contents.jsp");
+			
 		} else if (command.equals("/index.me")) { /* 로그인 */
 			forward = new ActionForward();
 			forward.setRedirect(false);

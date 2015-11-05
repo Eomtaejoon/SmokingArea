@@ -17,12 +17,12 @@ import net.member.db.MemberService;
 		
 		String id=(String)session.getAttribute("id");
 		
-		
-   		if(id==null){
+		/*
+ 		if(id==null){
 			forward.setRedirect(true);
 			forward.setPath("./index.me");
 			return forward;
-   		}
+   		}*/
    		
    				
 		List boardlist=new ArrayList();
