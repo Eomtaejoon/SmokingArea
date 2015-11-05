@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		
-		<div class="iframe">
+		<div class="iframe" id="best">
 		<iframe src="/last_project/BoardList.bo"></iframe>
 		</div>
 		
