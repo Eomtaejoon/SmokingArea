@@ -39,6 +39,7 @@ figure img {
 body {
     max-width: 480px;
     width: 90%;
+    margin: 3em auto;
     font-size: 75%;
     line-height: 1.3rem;
     font-family: sans-serif;
@@ -102,7 +103,7 @@ input[type=checkbox] {
     position: absolute;
 }
 
-[for="read_more"] {
+[for="read_more1"] {
     position: absolute;
     bottom: -3rem;
     left: 0;
@@ -112,15 +113,56 @@ input[type=checkbox] {
     box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1), inset -1px -1px rgba(0, 0, 0, 0.1);
 }
 
-[for="read_more"]:hover {
+[for="read_more1"]:hover {
     background: rgba(0,0,0,.5);
     color: rgb(255,255,255);
 }
 
-[for="read_more"] span:last-of-type {
+[for="read_more1"] span:last-of-type {
     display: none;
     visibility: hidden;
 }
+
+[for="read_more2"] {
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: .65rem;
+    box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1), inset -1px -1px rgba(0, 0, 0, 0.1);
+}
+
+[for="read_more2"]:hover {
+    background: rgba(0,0,0,.5);
+    color: rgb(255,255,255);
+}
+
+[for="read_more2"] span:last-of-type {
+    display: none;
+    visibility: hidden;
+}
+
+[for="read_more3"] {
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: .65rem;
+    box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1), inset -1px -1px rgba(0, 0, 0, 0.1);
+}
+
+[for="read_more3"]:hover {
+    background: rgba(0,0,0,.5);
+    color: rgb(255,255,255);
+}
+
+[for="read_more3"] span:last-of-type {
+    display: none;
+    visibility: hidden;
+}
+
 
 input[type=checkbox]:checked ~ section {
     display: block;
