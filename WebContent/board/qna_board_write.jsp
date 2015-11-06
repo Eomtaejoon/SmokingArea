@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="utf-8"%>
 <%
 	String id = (String) session.getAttribute("id");
 %>
@@ -16,21 +16,21 @@
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/board/css/style_mob.css">
 </head>
 <body>
-	<!-- °Ô½ÃÆÇ µî·Ï -->
+	<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 	<form action="BoardAddAction.bo" method="post"
 		enctype="multipart/form-data" name="boardform">
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
 		<div class="writeform">
 		<div class="head">
-			<input type="text" class="title" name="title" placeholder=" Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä">
-			<button class="btn btn-default"><i class="fa fa-picture-o" style="font-size: 18px" title='ÀÌ¹ÌÁö Ã·ºÎ'></i></button>
-			<button class="btn btn-default"><i class="fa fa-map" style="font-size: 18px" title='À§Ä¡ÀúÀå'></i></button>
-			<!-- ÀÌ¹ÌÁö Á¡ºÎ ±â´É -->
+			<input type="text" class="title" name="title" placeholder=" ì œëª©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”">
+			<button class="btn btn-default"><i class="fa fa-picture-o" style="font-size: 18px" title='ì´ë¯¸ì§€ ì²¨ë¶€'></i></button>
+			<button class="btn btn-default"><i class="fa fa-map" style="font-size: 18px" title='ìœ„ì¹˜ì €ìž¥'></i></button>
+			<!-- ì´ë¯¸ì§€ ì ë¶€ ê¸°ëŠ¥ -->
 		</div>
-		<textarea name="content" placeholder=" ¾Ç¼º&»çÇà¼º °Ô½Ã±Û ¹× µ¡±ÛÀº ¿¹°í¾øÀÌ »èÁ¦µÉ ¼ö ÀÖ½À´Ï´Ù."></textarea>
-		<button class="btn btn-success" type="submit">±ÛÀúÀå</button>
+		<textarea name="content" placeholder=" ì•…ì„±&ì‚¬í–‰ì„± ê²Œì‹œê¸€ ë° ë§ê¸€ì€ ì˜ˆê³ ì—†ì´ ì‚­ì œë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤."></textarea>
+		<button class="btn btn-success" type="submit">ê¸€ì €ìž¥</button>
 	</div>
 	</form>
-	<!-- °Ô½ÃÆÇ µî·Ï -->
+	<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 </body>
 </html>
