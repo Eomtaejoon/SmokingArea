@@ -10,10 +10,11 @@
 }
 
 #sidebar .nav-title {
-  font-size: 2em;
+  font-size: 30px;
   text-align: center;
-  margin-top: 0.3em;
-  margin-bottom: 0.5em;
+  height: 90px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 #sidebar .nav-top-contact {
   font-size: 1em;

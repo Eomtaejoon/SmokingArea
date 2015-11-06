@@ -2,17 +2,6 @@
 	margin-left: 160px;
 }
 
-.iframe {
-	width: 100%;
-	height: 100%;
-}
-
-iframe {
-	width: 100%;
-	height: 100%;
-	border: hidden ;
-}
-
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
@@ -65,13 +54,10 @@ html, body {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-html,
-body {
+html,body {
   font-size: 100%; }
 
 body {
-  background: #fff;
-  color: #222;
   cursor: auto;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-style: normal;
@@ -80,7 +66,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative; }
-
+  
 a:hover {
   cursor: pointer; }
 
@@ -1458,32 +1444,6 @@ span.postfix, label.postfix {
   color: #333333;
   border-color: #cccccc; }
 
-/* We use this to get basic styling on all basic form elements */
-input:not([type]), input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: 0;
-  background-color: #FFFFFF;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #cccccc;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.75);
-  display: block;
-  font-family: inherit;
-  font-size: 0.875rem;
-  height: 2.3125rem;
-  margin: 0 0 1rem 0;
-  padding: 0.5rem;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: border-color 0.15s linear, background 0.15s linear;
-  -moz-transition: border-color 0.15s linear, background 0.15s linear;
-  -ms-transition: border-color 0.15s linear, background 0.15s linear;
-  -o-transition: border-color 0.15s linear, background 0.15s linear;
-  transition: border-color 0.15s linear, background 0.15s linear; }
   input:not([type]):focus, input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
     background: #fafafa;
     border-color: #999999;
@@ -1623,14 +1583,6 @@ input[type="checkbox"],
 input[type="radio"],
 select {
   margin: 0 0 1rem 0; }
-
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  display: inline-block;
-  margin-left: 0.5rem;
-  margin-right: 1rem;
-  margin-bottom: 0;
-  vertical-align: baseline; }
 
 /* Normalize file input width */
 input[type="file"] {
@@ -5694,14 +5646,6 @@ table {
       font-size: 0.875rem;
       font-weight: bold;
       padding: 0.5rem 0.625rem 0.625rem; }
-  table tr th,
-  table tr td {
-    color: #222222;
-    font-size: 0.875rem;
-    padding: 0.5625rem 0.625rem;
-    text-align: left; }
-  table tr.even, table tr.alt, table tr:nth-of-type(even) {
-    background: #F9F9F9; }
   table thead tr th,
   table tfoot tr th,
   table tfoot tr td,

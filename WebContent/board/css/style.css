@@ -1,5 +1,5 @@
 .writeform {
-	width: 100%;
+	width: 500px;
 	height: 230px;
 	max-width: 600px;
 }
@@ -14,37 +14,10 @@ textarea {
 	resize: none;
 }
 
-body {
-  margin: 30px;
-}
-
 .container {
   background-color: #fff;
   padding: 40px 80px;
   border-radius: 8px;
-}
-
-h1 {
-  color: #fff;
-  font-size: 4rem;
-  font-weight: 900;
-  margin: 0 0 5px 0;
-  background: -webkit-linear-gradient(#fff, #999);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-}
-
-h4 {
-  color: #a990cc;
-  font-size: 24px;
-  font-weight: 400;
-  text-align: center;
-  margin: 0 0 35px 0;
-}
-
-input[type=text]:focus {
-  border-color: #9ab1c8;
 }
 
 .btn.btn-default {

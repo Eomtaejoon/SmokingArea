@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="utf-8"%>
 <%
-	/* ¼¼¼Ç  ¿¬°á */
+	/* ì„¸ì…˜  ì—°ê²° */
 	String id = (String)session.getAttribute("id");
 	boolean login = id == null ? false : true;
 %>	
@@ -12,23 +11,58 @@
 <title>Smoking Area</title>
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/foundation.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/css/foundation_mob.css">
+
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style.css">
+<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
+
+<!-- icon CSS -->
+<link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#board").click(function(){
+        $.ajax({url: "/last_project/BoardList.bo", success: function(result){
+            $("#contents").html(result);
+        }});
+    });
+});
+</script>
+
 </head>
 
-<body>
-
+<body style="text-align: left;">
 	<div class="menu">
-		<jsp:include page="menu/menu.jsp" flush="false"></jsp:include>
+		<div id="sidebar">
+			<div class="nav-title">Smoking Area</div>
+			<nav id="menu" class="left show">
+				<ul>
+					<a href="#home"><li>HOME <i class="fa fa-home fa-fw"></i></li></a>
+					<a href="#best"><li>BEST <i class="fa fa-thumbs-up fa-fw"></i></li></a>
+					<a href="#map"><li>MAP <i class="fa fa-map-marker fa-fw"></i></li></a>
+					<a href="#event"><li>EVENT <i class="fa fa-gift fa-fw"></i></li></a>
+					<a id="board"><li>BOARD <i class="fa fa-pencil-square-o fa-fw"></i></li></a>
+					<a href="#etc"><li class='sub-menu'>ETC <i class="fa fa-question-circle fa-fw"></i></a>
+					<ul>
+					<li><a>ê¸ˆì—°ë„ìš°ë¯¸</a></li>
+					<li><a>í¡ì—°ì§€ì¹¨ì„œ</a></li>
+					</ul></li>
+				</ul>
+			</nav>
+		</div>
 	</div>
 
 	<div class="wrap">
 
 		<div class="row" id="home">
-			<div class="large-3 columns">
+			<div class="large-3 columns" id="logo">
 				<img src="img/logo.gif" />
 			</div>
-			<%=id %> ´Ô Á¢¼Ó
+			<%=id %> ë‹˜ ì ‘ì†
 		</div>
 
+	<div id="contents">
 		<div class="row">
 			<div class="large-12 columns">
 				<div class="slider">
@@ -42,35 +76,20 @@
 			<div class="large-4 columns" id="best">
 				<img src="img/1.jpg" />
 				<h4>Best content section.</h4>
-				<p>db ÁÁ¾Æ¿ä ´©°è 1¼øÀ§</p>
+				<p>db ì¢‹ì•„ìš” ëˆ„ê³„ 1ìˆœìœ„</p>
 			</div>
 			<div class="large-4 columns">
 				<img src="img/2.jpg" />
 				<h4>Best content section.</h4>
-				<p>db ÁÁ¾Æ¿ä ´©°è 2¼øÀ§</p>
+				<p>db ì¢‹ì•„ìš” ëˆ„ê³„ 2ìˆœìœ„</p>
 			</div>
 			<div class="large-4 columns">
 				<img src="img/3.jpg" />
 				<h4>Best content section.</h4>
-				<p>db ÁÁ¾Æ¿ä ´©°è 3¼øÀ§</p>
+				<p>db ì¢‹ì•„ìš” ëˆ„ê³„ 3ìˆœìœ„</p>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
-				<div class="panel">
-					<h4>Get in touch!</h4>
-					<div class="row">
-						<div class="large-9 columns">
-							<p>°Ô½ÃÆÇÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.</p>
-						</div>
-						<div class="large-3 columns">
-							<a href="#" class="radius button right">°Ô½ÃÆÇÀ¸·Î °¡±â</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</div>
 
 		<div class="row">
 			<div id="map">
@@ -106,5 +125,10 @@
 
 		</footer>
 	</div>
+	
+
+<!-- java script(menu) -->
+	<script	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src="<%= request.getContextPath() %>/menu/js/index.js"></script>
 </body>
 </html>

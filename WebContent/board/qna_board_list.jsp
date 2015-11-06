@@ -20,33 +20,49 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_style.css">
-<script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_action.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#write").click(function(){
+        $.ajax({url: "/last_project/BoardWrite.bo", success: function(result){
+            $("#write_box").html(result);
+        }});
+    });
+});
+</script>
+
 </head>
 
 <body>
+<div id="write_box" style="float: right;"></div>
+
 <!-- 게시판 리스트 -->
-<table width=570 border="0" cellpadding="0" cellspacing="0">
-	<tr align="center" valign="middle">
-		<td align="left">
+<div style="padding: 15px;">
+<table class="contents_head">
+	<tr>
+		<td>
 			<font size=2>글 개수 : ${listcount }</font>
 		</td>
 	</tr>
-	<tr align="left">
+	<tr>
 		<td colspan="5">
 			<%if(id!=null && id.equals("admin")){%>
 				<a href="MemberListAction.me">[회원관리]</a>
 			<%}%>
-	   		<a href="BoardWrite.bo">[글쓰기]</a>
+	   		<a id="write">[글쓰기]</a>
 		</td>
 	</tr>
 </table>
-<table width=570 border="0" cellpadding="0" cellspacing="0">	
+<table class="contents_body">	
 	<%
 		for(int i=0;i<boardList.size();i++){
 			BoardBean bl=(BoardBean)boardList.get(i);
 	%>
 	<!-- 게시판 수정 -->
+	<div class="contents">
 	<article>
 	    <input type="checkbox" id="read_more<%=i+1 %>" role="button">
 	    <label for="read_more<%=i+1 %>" onclick=""><span>Read More</span><span>Hide This Shit!</span></label>     
@@ -62,6 +78,7 @@
 	    <p><%=bl.getContent() %></p>
 		</section>
 	</article>
+	</div>
 	<!-- 게시판 수정 -->
 	
 	<%} %>
@@ -90,5 +107,8 @@
 		</td>
 	</tr>
 </table>
+
+<div id="write_box"></div>
+</div>
 </body>
 </html>
