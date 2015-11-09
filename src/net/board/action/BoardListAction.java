@@ -14,7 +14,8 @@ import net.member.db.MemberService;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		ActionForward forward= new ActionForward();
 		HttpSession session=request.getSession();
-		
+		session.removeAttribute("ch");
+		session.setAttribute("ch", "0");
 		String id=(String)session.getAttribute("id");
 		
 		/*

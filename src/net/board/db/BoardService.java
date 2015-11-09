@@ -94,5 +94,37 @@ public class BoardService {
 			session.close();
 		}return bean;
 	}//end readCountUpdate
+
+	//list delete
+	public void delete(int num) {
+		SqlSession session = MySQLSessionFactory.openSession();
+		// 코드 패턴
+		try {
+			// id값 반드시 일치(대소문자 구별)
+			int n = session.delete("boardMappeing.boardDelete", num);
+			// n값은 작용된 레코드
+			if (n == 1) {
+				session.commit();
+			}
+		} finally {
+			session.close();
+		}
+	}
+	
+	//글쓴이 유효성 검사
+	public boolean isBoardWriter(int num,String id) {
+		SqlSession session = MySQLSessionFactory.openSession();
+		boolean blean=false;
+		BoardBean bean = null;
+		try {
+			bean = session.selectOne("boardMappeing.detail", num); // id값 / parameter값
+			if(id.equals(bean.getB_id())){
+				blean=true;
+			}
+		} finally {
+			session.close();
+		}
+		return blean;
+	}
 	
 }//end class

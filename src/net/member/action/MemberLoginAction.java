@@ -54,6 +54,8 @@ public class MemberLoginAction implements Action{
 	   		
 	   		//로그인 성공
 	   		session.setAttribute("id", member.getMember_id()); //세션에 id등록
+	   		session.setAttribute("ch", "0");
+	   		
 	   		session.setMaxInactiveInterval(60*60);
 	   		forward.setRedirect(true); //접속끊었다가 다시 연결하면서 새로운 정보를 보여준다
 	   		forward.setPath("/last_project/index.me");

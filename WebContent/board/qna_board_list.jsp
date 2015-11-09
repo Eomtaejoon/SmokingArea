@@ -32,6 +32,7 @@ $(document).ready(function(){
         }});
     });
 });
+
 </script>
 
 </head>
@@ -52,7 +53,7 @@ $(document).ready(function(){
 			<%if(id!=null && id.equals("admin")){%>
 				<a href="MemberListAction.me">[회원관리]</a>
 			<%}%>
-	   		<a id="write">[글쓰기]</a>
+	   		<a id="write" onclick="change()">[글쓰기]</a>
 		</td>
 	</tr>
 </table>
@@ -61,8 +62,12 @@ $(document).ready(function(){
 		for(int i=0;i<boardList.size();i++){
 			BoardBean bl=(BoardBean)boardList.get(i);
 	%>
-	<!-- 게시판 수정 -->
+	<!-- 게시판 -->
 	<div class="contents">
+<%-- 	<%if(id!=null && id.equals("admin")){%> --%>
+	<div><a href="./BoardModify.bo?num=<%=bl.getNum() %>">수정</a> 
+		 <a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">삭제</a> </div>
+	<%-- <%}%> --%>
 	<article>
 	    <input type="checkbox" id="read_more<%=i+1 %>" role="button">
 	    <label for="read_more<%=i+1 %>" onclick=""><span>Read More</span><span>Hide This Shit!</span></label>     
@@ -78,8 +83,29 @@ $(document).ready(function(){
 	    <p><%=bl.getContent() %></p>
 		</section>
 	</article>
+	<table id="commentTable" class="table table-condensed"></table>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>
+                                <span class="form-inline" role="form">
+                                    <p>
+                                        <div class="form-group">
+                                            <input type="text" id="commentParentName" name="commentParentName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" id="commentParentPassword" name="commentParentPassword" class="form-control col-lg-2" data-rule-required="true" placeholder="패스워드" maxlength="10">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" id="commentParentSubmit" name="commentParentSubmit" class="btn btn-default">확인</button>
+                                        </div>
+                                    </p>
+                                        <textarea id="commentParentText" class="form-control col-lg-12" style="width:100%" rows="4"></textarea>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
 	</div>
-	<!-- 게시판 수정 -->
+	<!-- 게시판 -->
 	
 	<%} %>
 	<tr align="left" height=20>
