@@ -19,8 +19,6 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_style.css">
-<link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_action.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -38,10 +36,13 @@ $(document).ready(function(){
 </head>
 
 <body>
-<div id="write_box" style="float: right;"></div>
 
 <!-- 게시판 리스트 -->
-<div style="padding: 15px;">
+<div class="row">
+<div class="large-6 columns">
+<div id="write_box"></div>
+</div>
+<div class="large-6 columns">
 <table class="contents_head">
 	<tr>
 		<td>
@@ -112,8 +113,8 @@ $(document).ready(function(){
 		</td>
 	</tr>
 </table>
-
-<div id="write_box"></div>
+</div>
+<div class="large-6 columns"></div>
 </div>
 </body>
 </html>

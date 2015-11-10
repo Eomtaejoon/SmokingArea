@@ -10,19 +10,16 @@
 		boardform.submit();
 	}
 </script>
-<link rel='stylesheet' href='<%= request.getContextPath() %>/board/css/strap.css'>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css">
-<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/board/css/style.css">
-<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/board/css/style_mob.css">
+
 </head>
 <script>
-function aaa(){
+function save(){
             $("#write_box").empty(); 
 }
 </script>
 
 <script>
-function bbb(){
+function cancle(){
             $("#write_box").empty(); 
 }
 </script>
@@ -45,7 +42,6 @@ function bbb(){
 				</button>
 				<!-- 이미지 점부 기능 -->
 			</div>
-
 			<textarea name="content"
 				placeholder=" 악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다." style="float: left;">
 			</textarea>

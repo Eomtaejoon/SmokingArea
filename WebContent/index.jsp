@@ -21,6 +21,15 @@
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
 
+<!-- write CSS -->
+<link rel='stylesheet' href='<%= request.getContextPath() %>/board/css/strap.css'>
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/board/css/style.css">
+<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/board/css/style_mob.css">
+
+<!-- board CSS -->
+<link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_style.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/board/css/view_action.css">
+
 <!-- icon CSS -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css">
 
@@ -141,12 +150,7 @@ $(document).ready(function(){
 						<p>&copy; Copyright no one at all. Go to town.</p>
 					</div>
 					<div class="large-6 columns">
-						<ul class="inline-list right">
-							<li><a href="#">Link 1</a></li>
-							<li><a href="#">Link 2</a></li>
-							<li><a href="#">Link 3</a></li>
-							<li><a href="#">Link 4</a></li>
-						</ul>
+						<a href="http://www.nosmokeguide.or.kr/mbs/nosmokeguide/" class="inline-list right"><img src="img/down_logo_s.png"></a>
 					</div>
 				</div>
 			</div>
