@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import net.entity.MemberBean;
 import net.member.action.ActionForward;
-import net.member.db.MemberDAO;
 import net.member.db.MemberService;
 
 public class MemberLoginAction implements Action{
@@ -27,10 +26,6 @@ public class MemberLoginAction implements Action{
 	   		MemberService service = new MemberService();
 	   		
 	   		result=service.login(member.getMember_id());
-	   		
-	   		/*result=memberdao.isMember(member);*/
-	   		
-	   		
 	   		
 	   		if(result==0){
 	   			response.setContentType("text/html;charset=utf-8");

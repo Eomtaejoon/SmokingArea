@@ -74,10 +74,16 @@ $(document).ready(function(){
 	<div class="wrap">
 
 		<div class="row" id="home">
-			<div class="large-3 columns" id="logo">
+			<div class="large-3 columns" id="logo" style="border: 1px solid;">
 				<a href="<%= request.getContextPath() %>/index.me"><img src="img/logo_main.png" /></a>
 			</div>
-			<%=id %> 님 접속
+			<div style="border: 1px solid; text-align: right;">
+				<%=id %> 님 접속 
+				<%if(id!=null){%>
+					<a href="<%= request.getContextPath() %>/MemberLogoutAction.me">로그아웃</a>
+				<%} %>
+			</div>
+			
 		</div>
 
 	<div id="contents">

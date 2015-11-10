@@ -83,27 +83,6 @@ $(document).ready(function(){
 	    <p><%=bl.getContent() %></p>
 		</section>
 	</article>
-	<table id="commentTable" class="table table-condensed"></table>
-                    <table class="table table-condensed">
-                        <tr>
-                            <td>
-                                <span class="form-inline" role="form">
-                                    <p>
-                                        <div class="form-group">
-                                            <input type="text" id="commentParentName" name="commentParentName" class="form-control col-lg-2" data-rule-required="true" placeholder="이름" maxlength="10">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" id="commentParentPassword" name="commentParentPassword" class="form-control col-lg-2" data-rule-required="true" placeholder="패스워드" maxlength="10">
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" id="commentParentSubmit" name="commentParentSubmit" class="btn btn-default">확인</button>
-                                        </div>
-                                    </p>
-                                        <textarea id="commentParentText" class="form-control col-lg-12" style="width:100%" rows="4"></textarea>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
 	</div>
 	<!-- 게시판 -->
 	
