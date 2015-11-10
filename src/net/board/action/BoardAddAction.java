@@ -26,20 +26,13 @@ public class BoardAddAction implements Action {
    		try{
    			MultipartRequest multi=null;
    			
-   			
-   			
    			multi=new MultipartRequest(request, saveFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
    			   			
    			boardbean.setB_id(multi.getParameter("BOARD_ID"));
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));
    			
-   			
-/*   			System.out.println(multi.getParameter("BOARD_ID"));
-   			System.out.println(multi.getParameter("title"));
-   			System.out.println(multi.getParameter("content"));*/
-   			
-	   		
+   			//boardService 객체 생성
    			BoardService service = new BoardService();
 	   		result = service.insert(boardbean); 
 	   				
