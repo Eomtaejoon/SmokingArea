@@ -1,6 +1,5 @@
-
-
 .writeform {
+	margin-top: 80px;
 	width: 380px;
 	height: 230px;
 	max-width: 600px;
@@ -8,6 +7,18 @@
 
 .head {
 	margin-bottom: 0px;
+}
+
+#uploadFile {
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 0;
 }
 
 textarea {

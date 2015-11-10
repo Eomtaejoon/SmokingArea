@@ -33,10 +33,11 @@ function cancle(){
 		<div class="writeform">
 			<div class="head">
 				<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요">
-			</div>
-			<div class="head">
-				<input type="file" name="uploadFile" id="uploadFile" class="btn btn-default">
-				<button class="btn btn-default" style="float: left;">
+				<button class="btn btn-default">
+					<input type="file" name="uploadFile" id="uploadFile">
+					<i class="fa fa-picture-o" style="font-size: 18px" title='사진추가'></i>
+				</button>
+				<button class="btn btn-default">
 					<i class="fa fa-map" style="font-size: 18px" title='위치저장'></i>
 				</button>
 				<!-- 이미지 점부 기능 -->
