@@ -31,7 +31,7 @@ public class MemberLoginAction implements Action{
 	   			response.setContentType("text/html;charset=utf-8");
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
-		   		out.println("alert('');");
+		   		out.println("alert('비밀번호 불일치.');");
 		   		out.println("location.href='/last_project/logindex.me';");
 		   		out.println("</script>");
 		   		out.close();
@@ -40,18 +40,19 @@ public class MemberLoginAction implements Action{
 	   			response.setContentType("text/html;charset=utf-8");
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
-		   		out.println("alert('');");
+		   		out.println("alert('회원이 없습니다..');");
 		   		out.println("location.href='/last_project/logindex.me';");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;
 		   	}
 	   		
-	   		session.setAttribute("id", member.getMember_id());
+	   		//로그인 성공
+	   		session.setAttribute("id", member.getMember_id()); //세션에 id등록
 	   		session.setAttribute("ch", "0");
 	   		
 	   		session.setMaxInactiveInterval(60*60);
-	   		forward.setRedirect(true);
+	   		forward.setRedirect(true); //접속끊었다가 다시 연결하면서 새로운 정보를 보여준다
 	   		forward.setPath("/last_project/index.me");
 	   		return forward;
 	}

@@ -16,8 +16,8 @@ public class BoardAddAction implements Action {
 	 throws Exception{
 	   	ActionForward forward=new ActionForward();
 	   	BoardBean boardbean = new BoardBean();
-   		String saveFolder="C:\\Users\\12-718-8\\git\\SmokingArea\\WebContent\\boardupload\\";
    		HttpSession session=request.getSession();
+   		String saveFolder="C:\\Users\\12-718-8\\git\\SmokingArea\\WebContent\\boardupload\\"; //파일 저장 경로
    		
    		int fileSize=5*1024*1024; 
    		
@@ -31,6 +31,8 @@ public class BoardAddAction implements Action {
    			boardbean.setB_id(multi.getParameter("BOARD_ID"));
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));
+   			
+   			System.out.println(multi.getFilesystemName("uploadFile"));
    			
    			//boardService 객체 생성
    			BoardService service = new BoardService();
