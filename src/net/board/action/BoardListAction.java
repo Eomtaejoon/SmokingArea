@@ -17,31 +17,17 @@ import net.member.db.MemberService;
 		session.removeAttribute("ch");
 		session.setAttribute("ch", "0");
 		String id=(String)session.getAttribute("id");
-		
-		/*
- 		if(id==null){
-			forward.setRedirect(true);
-			forward.setPath("./index.me");
-			return forward;
-   		}*/
-   		
-   				
 		List boardlist=new ArrayList();
-		
-	  	int page=1;  //기본적으로 1페이지 부터 시작.
+	  	
+		int page=1;  //기본적으로 1페이지 부터 시작.
 		int limit=3; //페이지당 개수 제한.
-		
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		
 		BoardService service = new BoardService();
-		
 		int listcount=service.selectCount(); //총 리스트 수
-		
 		boardlist = service.selectByPage(page,limit); //실질적인 리스트 받아오는
-		
 		//총 페이지 수
 		int maxpage=(int)((double)listcount/limit+0.95); //현재 페이지에 보여줄 시작 페이지 수
    		

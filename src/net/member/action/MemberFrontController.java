@@ -55,6 +55,15 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet implem
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/MemberLogoutAction.me")) {
+			
+			action = new MemberLogoutAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+				
 		} else if (command.equals("/member/MemberListAction.me")) {
 			action = new MemberListAction();
 			try {
