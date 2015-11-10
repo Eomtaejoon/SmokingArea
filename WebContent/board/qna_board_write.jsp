@@ -43,7 +43,7 @@ function cancle(){
 				<!-- 이미지 점부 기능 -->
 			</div>
 			<textarea name="content" placeholder="악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다." style="float: left;"></textarea>
-			</div>
+		</div>
 		<div class="writeform">	
 			<button class="btn btn-success" type="submit" onclick="save()">글저장</button>
 			<button class="btn btn-success" type="button" onclick="cancle()">취소</button>
