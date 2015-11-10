@@ -15,8 +15,8 @@
 	
 	<!-- 게시판 등록 -->
 	<insert id="insert" parameterType="net.entity.BoardBean">
-		insert into board( num, b_id, title, content ) values ( myboard_seq.nextval
-		, #{b_id} , #{title} , #{content})
+		insert into board( num, b_id, title, content, img ) values ( myboard_seq.nextval
+		, #{b_id} , #{title} , #{content}, #{img})
 	</insert>
 	
 	<!-- 게시판 삭제 -->

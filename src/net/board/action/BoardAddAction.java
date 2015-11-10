@@ -31,8 +31,9 @@ public class BoardAddAction implements Action {
    			boardbean.setB_id(multi.getParameter("BOARD_ID"));
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));
+   			boardbean.setImg(multi.getFilesystemName("uploadFile"));
    			
-   			System.out.println(multi.getFilesystemName("uploadFile"));
+   			/*System.out.println(multi.getFilesystemName("uploadFile"));*/
    			
    			//boardService 객체 생성
    			BoardService service = new BoardService();

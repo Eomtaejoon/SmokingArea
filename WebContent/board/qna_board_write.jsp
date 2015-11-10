@@ -43,7 +43,7 @@ function cancle(){
 				<!-- 이미지 점부 기능 -->
 			</div>
 			<textarea name="content"
-				placeholder=" 악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다." style="float: left;">
+				placeholder=" 악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다.">
 			</textarea>
 		</div>
 		<div class="writeform">	
