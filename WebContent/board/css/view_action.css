@@ -28,7 +28,7 @@ figure img {
 }
 
 .contents {
-    max-width: 480px;
+    max-width: 380px;
     width: 90%;
     font-size: 75%;
     line-height: 1.3rem;
@@ -48,7 +48,7 @@ p { margin-bottom: 1.3rem }
 
 article {
 	width: 100%;
-	max-width: 480px;
+	max-width: 380px;
     margin-bottom: 3rem;
     position: relative;
     *zoom: 1;
