@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 	<div class="menu">
 		<div id="sidebar">
-			<a href="<%= request.getContextPath() %>/index.me"><div class="nav-title">Smoking Area</div></a>
+			<a href="<%= request.getContextPath() %>/index.me"><div class="nav-title"><img src="img/logo_sub.png" /></div></a>
 			<nav id="menu" class="left show">
 				<ul>
 					<a href="#home"><li>HOME <i class="fa fa-home fa-fw"></i></li></a>
@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 		<div class="row" id="home">
 			<div class="large-3 columns" id="logo">
-				<img src="img/logo.gif" />
+				<a href="<%= request.getContextPath() %>/index.me"><img src="img/logo_main.png" /></a>
 			</div>
 			<%=id %> 님 접속
 		</div>

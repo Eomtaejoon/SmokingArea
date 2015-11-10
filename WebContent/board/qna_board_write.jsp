@@ -17,13 +17,13 @@
 </head>
 <script>
 function aaa(){
-            $("#write_box").remove(); 
+            $("#write_box").empty(); 
 }
 </script>
 
 <script>
 function bbb(){
-            $("#write_box").remove(); 
+            $("#write_box").empty(); 
 }
 </script>
 
