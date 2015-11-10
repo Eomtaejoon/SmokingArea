@@ -15,8 +15,8 @@
 
 <meta charset="utf-8" />
 <title>Smoking Area</title>
-<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/foundation.css">
-<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/css/foundation_mob.css">
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/style_main.css">
+<link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/css/style_mob.css">
 
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
@@ -63,8 +63,9 @@ $(document).ready(function(){
 					<a id="board"><li>BOARD <i class="fa fa-pencil-square-o fa-fw"></i></li></a>
 					<a href="#etc"><li class='sub-menu'>ETC <i class="fa fa-question-circle fa-fw"></i></a>
 					<ul>
-					<li><a>금연도우미</a></li>
-					<li><a>흡연지침서</a></li>
+					<li><a href="http://www.nosmokeguide.or.kr/mbs/nosmokeguide/">금연도우미</a></li>
+					<li><a href="http://www.nosmokeguide.or.kr/mbs/nosmokeguide/subview.jsp?id=nosmokeguide_020301000000">흡연지침서</a></li>
+					<li><a href="http://www.nosmokeguide.or.kr/user/webzine/mail.jsp">금연매거진</a></li>
 					</ul></li>
 				</ul>
 			</nav>
@@ -118,7 +119,10 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div id="event">
-				<img src="img/event.jpg">
+				<a href="http://www.nosmokeguide.or.kr/mbs/nosmokeguide/jsp/board/view.jsp?spage=1&boardId=468&boardSeq=6122383&id=nosmokeguide_060100000000&regColumn=&categoryId=0&categoryDepth=&gisuColumn="><img src="img/campaign1.jpg"></a>
+				<a href="http://www.nosmokeguide.or.kr/mbs/nosmokeguide/subview.jsp?id=nosmokeguide_040501050000"><img src="img/campaign2.jpg"></a>
+				<a><img src="img/campaign3.jpg"></a>
+				<a href="http://hi.nhis.or.kr/ggph010m01_l01.do?mn_idx=MN00000218"><img src="img/campaign4.jpg"></a>
 			</div>
 		</div>
 		<hr />
