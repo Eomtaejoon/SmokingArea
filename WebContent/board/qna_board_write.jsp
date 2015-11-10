@@ -47,8 +47,8 @@ function cancle(){
 			</textarea>
 		</div>
 		<div class="writeform">	
-			<button class="btn btn-success" type="submit" onclick="aaa()">글저장</button>
-			<button class="btn btn-success" type="button" onclick="bbb()">취소</button>
+			<button class="btn btn-success" type="submit" onclick="save()">글저장</button>
+			<button class="btn btn-success" type="button" onclick="cancle()">취소</button>
 		</div>
 	</form>
 	<!-- 게시판 등록 -->
