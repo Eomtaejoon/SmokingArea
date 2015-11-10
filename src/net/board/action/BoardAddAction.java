@@ -26,7 +26,7 @@ public class BoardAddAction implements Action {
    			
    			
    			
-   			multi=new MultipartRequest(request, saveFolder, fileSize, "euc-kr", new DefaultFileRenamePolicy());
+   			multi=new MultipartRequest(request, saveFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
    			   			
    			boardbean.setB_id(multi.getParameter("BOARD_ID"));
    			boardbean.setTitle(multi.getParameter("title"));
@@ -38,7 +38,7 @@ public class BoardAddAction implements Action {
    			
 	   		/*result=boarddao.boardInsert(boarddata);*/
 	   		
-   			BoardService service = new BoardService(); //서비스 객체 생성
+   			BoardService service = new BoardService();
 	   		result = service.insert(boardbean); 
 	   				
 	   		if(result==false){

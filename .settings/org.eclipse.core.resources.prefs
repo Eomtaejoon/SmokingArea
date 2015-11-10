@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/board/qna_board_list.jsp=UTF-8
 encoding//WebContent/menu/menu.jsp=UTF-8
+encoding//src/net/board/action/BoardAddAction.java=UTF-8
 encoding//src/net/board/action/BoardListAction.java=UTF-8
 encoding//src/net/member/db/MemberService.java=UTF-8
