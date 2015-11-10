@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
  public class BoardFrontController 
  	extends javax.servlet.http.HttpServlet 
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 		 String RequestURI=request.getRequestURI();
 		 String contextPath=request.getContextPath();
 		 String command=RequestURI.substring(contextPath.length());
+		 HttpSession session=request.getSession();
 		 
 		 System.out.println(command);
 		 
@@ -27,6 +29,13 @@ import javax.servlet.http.HttpServletResponse;
 			   forward=new ActionForward();
 			   forward.setRedirect(false);
 			   forward.setPath("/board/qna_board_write.jsp");
+			   
+		   }else if(command.equals("/index.me")){
+				   forward=new ActionForward();
+				   forward.setRedirect(false);
+				   forward.setPath("/index.jsp");
+				   
+				     
 		   }else if(command.equals("/BoardReplyAction.bo")){
 			   action = new BoardReplyView();
 			   try{
@@ -89,8 +98,7 @@ import javax.servlet.http.HttpServletResponse;
 		   if(forward.isRedirect()){
 			   response.sendRedirect(forward.getPath());
 		   }else{
-			   RequestDispatcher dispatcher=
-				   request.getRequestDispatcher(forward.getPath());
+			   RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 			   dispatcher.forward(request, response);
 		   }
 	 }

@@ -2,11 +2,17 @@
 <%
 	/* 세션  연결 */
 	String id = (String)session.getAttribute("id");
+
+	String ch = (String)session.getAttribute("ch");
+	
 	boolean login = id == null ? false : true;
+	System.out.print(ch);
 %>	
 
 <html>
+
 <head>
+
 <meta charset="utf-8" />
 <title>Smoking Area</title>
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/foundation.css">
@@ -20,7 +26,15 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+
 <script>
+function go(){
+	if(<%=ch%>=="1"){
+        $.ajax({url: "/last_project/BoardList.bo", success: function(result){
+            $("#contents").html(result);
+        }});
+	} 
+}
 $(document).ready(function(){
     $("#board").click(function(){
         $.ajax({url: "/last_project/BoardList.bo", success: function(result){
@@ -28,14 +42,18 @@ $(document).ready(function(){
         }});
     });
 });
+
 </script>
 
 </head>
 
-<body style="text-align: left;">
+<body style="text-align: left;"; onload="go()">
+
+
+
 	<div class="menu">
 		<div id="sidebar">
-			<div class="nav-title">Smoking Area</div>
+			<a href="<%= request.getContextPath() %>/index.me"><div class="nav-title">Smoking Area</div></a>
 			<nav id="menu" class="left show">
 				<ul>
 					<a href="#home"><li>HOME <i class="fa fa-home fa-fw"></i></li></a>

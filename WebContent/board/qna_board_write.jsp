@@ -15,10 +15,22 @@
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/board/css/style.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/board/css/style_mob.css">
 </head>
+<script>
+function aaa(){
+            $("#write_box").remove(); 
+}
+</script>
+
+<script>
+function bbb(){
+            $("#write_box").remove(); 
+}
+</script>
+
 <body>
 	<!-- 게시판 등록 -->
-	<form action="BoardAddAction.bo" method="post"
-		enctype="multipart/form-data" name="boardform">
+	<form method="post" action="BoardAddAction.bo"
+		enctype="multipart/form-data" name="boardform" >
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
 		<div class="writeform">
 		<div class="head">
@@ -28,7 +40,8 @@
 			<!-- 이미지 점부 기능 -->
 		</div>
 		<textarea name="content" placeholder=" 악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다."></textarea>
-		<button class="btn btn-success" type="submit">글저장</button>
+		<button class="btn btn-success" type="submit" onclick="aaa()">글저장</button>
+		<button class="btn btn-success" type="button" onclick="bbb()">취소</button>
 	</div>
 	</form>
 	<!-- 게시판 등록 -->

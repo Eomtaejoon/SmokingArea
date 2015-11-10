@@ -12,22 +12,32 @@
 	<select id="boardByPage" resultType="net.entity.BoardBean">select * from board order by
 		num desc
 	</select>
-		
+	
 	<!-- 게시판 등록 -->
 	<insert id="insert" parameterType="net.entity.BoardBean">
 		insert into board( num, b_id, title, content ) values ( myboard_seq.nextval
 		, #{b_id} , #{title} , #{content})
 	</insert>
+	
+	<!-- 게시판 삭제 -->
+	<delete id="boardDelete" parameterType="int"> 
+		delete from board 
+		where num = #{num} 
+	</delete>
+	
 	<!-- 조회수 -->
 	<update id="readCountUpdate" parameterType="net.entity.BoardBean">
 		update board set readcount = readcount+1 where num = #{num}
 	</update>
+	
 	<!-- num 글 조회 -->
 	<select id="detail" parameterType="int" resultType="net.entity.BoardBean">select * from
 		board where num = #{num}
-		</select>
+	</select>
+	
 	<!-- 번호로 삭제 
-	<delete id="boardDelete" parameterType="int"> delete from myboard 
+	<delete id="boardDelete" parameterType="int"> 
+		delete from myboard 
 		where num = #{num} 
 	</delete>
 	타이틀로 삭제 

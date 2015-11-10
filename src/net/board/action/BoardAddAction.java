@@ -1,11 +1,13 @@
 package net.board.action;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import net.board.db.BoardDAO;
 import net.board.db.BoardService;
 import net.entity.BoardBean;
 
@@ -14,8 +16,8 @@ public class BoardAddAction implements Action {
 	 throws Exception{
 	   	ActionForward forward=new ActionForward();
 	   	BoardBean boardbean = new BoardBean();
-	   	
    		String saveFolder="C:\\Users\\12-718-8\\git\\SmokingArea\\WebContent\\boardupload\\";
+   		HttpSession session=request.getSession();
    		
    		int fileSize=5*1024*1024; 
    		
@@ -32,11 +34,11 @@ public class BoardAddAction implements Action {
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));
    			
-   			System.out.println(multi.getParameter("BOARD_ID"));
-   			System.out.println(multi.getParameter("title"));
-   			System.out.println(multi.getParameter("content"));
    			
-	   		/*result=boarddao.boardInsert(boarddata);*/
+/*   			System.out.println(multi.getParameter("BOARD_ID"));
+   			System.out.println(multi.getParameter("title"));
+   			System.out.println(multi.getParameter("content"));*/
+   			
 	   		
    			BoardService service = new BoardService();
 	   		result = service.insert(boardbean); 
@@ -46,7 +48,8 @@ public class BoardAddAction implements Action {
 	   		}
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("./BoardList.bo");
+	   		forward.setPath("./index.me");
+	   		session.setAttribute("ch", "1");
 	   		return forward;
 	   		
   		}catch(Exception ex){
