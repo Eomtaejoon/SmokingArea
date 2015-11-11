@@ -2,6 +2,18 @@
 	margin-left: 160px;
 }
 
+.slider {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#event {
+	width: 760px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
