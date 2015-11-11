@@ -1,5 +1,8 @@
 package net.board.action;
 
+import java.lang.Math;
+import java.util.Enumeration;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +20,10 @@ public class BoardAddAction implements Action {
 	   	ActionForward forward=new ActionForward();
 	   	BoardBean boardbean = new BoardBean();
    		HttpSession session=request.getSession();
-   		String saveFolder="C:\\Users\\12-718-8\\git\\SmokingArea\\WebContent\\boardupload\\"; //파일 저장 경로
    		
+   		String saveFolder=request.getSession().getServletContext().getRealPath("/boardupload"); //파일 저장 경로
+   		
+   		System.out.println("saveFolder="+saveFolder);
    		int fileSize=5*1024*1024; 
    		
    		boolean result=false;
@@ -26,19 +31,25 @@ public class BoardAddAction implements Action {
    		try{
    			MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
    			
-   			//파일 이름 얻음
-            String fileName = multi.getFilesystemName("uploadFile");
-            //이름 중복시 원래이름 얻기
-            String originalFileName = multi.getOriginalFileName("uploadFile");
+   			Enumeration formNames=multi.getFileNames();  // 폼의 이름 반환 
+   			String formName=(String)formNames.nextElement(); 
+   			String fileName=multi.getFilesystemName(formName); // 파일의 이름 얻기 
    			
-            
-            
-            
+   			String file_ext = fileName.substring(fileName.lastIndexOf('.') + 1); 
+   			if(!( file_ext.equalsIgnoreCase("jpg") || file_ext.equalsIgnoreCase("gif")))
+   				System.out.println("업로드 금지 파일"); 
+   			
+   			
+   			if(fileName == null)
+   				System.out.println("파일 업로드 실패");
+   			else
+   				fileName=new String(fileName.getBytes("8859_1"),"euc-kr"); // 한글인코딩 
+   			
             //DB처리부
    			boardbean.setB_id(multi.getParameter("BOARD_ID"));
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));
-   			boardbean.setImg(multi.getFilesystemName("uploadFile"));
+   			boardbean.setImg(fileName);
    			
    			/*System.out.println(multi.getFilesystemName("uploadFile"));*/
    			
