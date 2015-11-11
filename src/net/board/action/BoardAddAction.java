@@ -24,10 +24,17 @@ public class BoardAddAction implements Action {
    		boolean result=false;
    		
    		try{
-   			MultipartRequest multi=null;
+   			MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
    			
-   			multi=new MultipartRequest(request, saveFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
-   			   			
+   			//파일 이름 얻음
+            String fileName = multi.getFilesystemName("uploadFile");
+            //이름 중복시 원래이름 얻기
+            String originalFileName = multi.getOriginalFileName("uploadFile");
+   			
+            
+            
+            
+            //DB처리부
    			boardbean.setB_id(multi.getParameter("BOARD_ID"));
    			boardbean.setTitle(multi.getParameter("title"));
    			boardbean.setContent(multi.getParameter("content"));

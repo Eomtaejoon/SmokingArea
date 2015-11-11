@@ -74,7 +74,8 @@ $(document).ready(function(){
 	    <label for="read_more<%=i+1 %>" onclick=""><span>Read More</span><span>Hide This Shit!</span></label>     
 	      
 	    <figure>
-	        <img src="http://cssdeck.com/uploads/media/items/8/8rDcElm.jpg" alt="I'm an owl" />
+	        <img src="<%=request.getContextPath()%>/boardupload/<%=bl.getImg()%>" alt="I'm an owl" />
+	        <p><%=bl.getImg()%></p>
 	    </figure>
 	
 	    <section>
