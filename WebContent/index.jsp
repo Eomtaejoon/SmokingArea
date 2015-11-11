@@ -18,7 +18,7 @@
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/style_main.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/css/style_mob.css">
 
-<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style.css">
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
 
 <!-- write CSS -->
@@ -84,10 +84,10 @@ $(document).ready(function(){
 	<div class="wrap">
 
 		<div class="row" id="home">
-			<div class="large-3 columns" id="logo" style="border: 1px solid;">
+			<div class="large-3 columns" id="logo">
 				<a href="<%= request.getContextPath() %>/index.me"><img src="img/logo_main.png" /></a>
 			</div>
-			<div style="border: 1px solid; text-align: right;">
+			<div style="text-align: right;">
 				<%=id %> 님 접속 
 				<%if(id!=null){%>
 					<a href="<%= request.getContextPath() %>/MemberLogoutAction.me">로그아웃</a>

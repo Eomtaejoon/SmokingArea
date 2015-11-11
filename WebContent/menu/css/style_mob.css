@@ -9,16 +9,6 @@
   background-color: #44695E;
 }
 
-#sidebar .nav-title {
-  font-size: 0.8em;
-  text-align: auto;
-  margin-top: 0.3em;
-}
-#sidebar .nav-top-contact {
-  font-size: 0.8em;
-  text-align: right;
-  padding: 0.1em 1.2em 0.1em 0.1em;
-}
 #sidebar nav ul {
   display: inline;
   list-style: none;
@@ -44,8 +34,7 @@
 }
 
 #sidebar nav ul li i {
-	margin-top: 5px;
-	margin-left: 3px;
+	margin: 4px;
 	font-size: 40px;
 }
 
