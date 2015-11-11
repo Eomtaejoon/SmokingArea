@@ -44,9 +44,11 @@ function go(){
         }});
 	} 
 }
+
 $(document).ready(function(){
     $("#board").click(function(){
-        $.ajax({url: "/last_project/BoardList.bo", success: function(result){
+        
+    	$.ajax({url: "/last_project/BoardList.bo", success: function(result){
             $("#contents").html(result);
         }});
     });
@@ -57,8 +59,6 @@ $(document).ready(function(){
 </head>
 
 <body style="text-align: left;"; onload="go()">
-
-
 
 	<div class="menu">
 		<div id="sidebar">

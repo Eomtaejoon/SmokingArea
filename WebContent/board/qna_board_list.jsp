@@ -25,16 +25,30 @@
 <script>
 $(document).ready(function(){
     $("#write").click(function(){
-        $.ajax({url: "/last_project/BoardWrite.bo", success: function(result){
-            $("#write_box").html(result);
+        $.ajax({
+        	url: "/last_project/BoardWrite.bo", 
+        	success: function(result){
+          	  $("#write_box").html(result);
         }});
     });
 });
 
+
+function aa(a){
+   	alert(a);
+       $.ajax({
+    	   url: "/last_project/BoardList.bo", 
+    	   data:{
+    		   page : a
+       	   },
+       	   success: function(result){
+       		   $('#contents').html(result);
+       }});
+}
+
+
 </script>
-
 </head>
-
 <body>
 
 <!-- 게시판 리스트 -->
@@ -101,7 +115,7 @@ $(document).ready(function(){
 				if(a==nowpage){%>
 				[<%=a %>]
 				<%}else{ %>
-				<a href="BoardList.bo?page=<%=a %>">[<%=a %>]</a>
+				<a href="javascript:aa(<%=a %>)">[<%=a %>]</a>
 				&nbsp;
 				<%} %>
 			<%} %>

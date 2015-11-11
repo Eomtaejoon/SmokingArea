@@ -18,12 +18,8 @@ import javax.servlet.http.HttpSession;
 		 String command=RequestURI.substring(contextPath.length());
 		 HttpSession session=request.getSession();
 		 
-		 System.out.println(command);
-		 
 		 ActionForward forward=null;
 		 Action action=null;
-		  
-		 System.out.println(command);
 		 
 		   if(command.equals("/BoardWrite.bo")){
 			   forward=new ActionForward();
@@ -80,7 +76,6 @@ import javax.servlet.http.HttpSession;
 			   }
 		   }else if(command.equals("/BoardList.bo")){
 			   action = new BoardListAction();
-			   
 			   try{
 				   forward=action.execute(request, response);
 			   }catch(Exception e){

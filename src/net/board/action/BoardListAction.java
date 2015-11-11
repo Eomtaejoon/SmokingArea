@@ -14,6 +14,7 @@ import net.member.db.MemberService;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		ActionForward forward= new ActionForward();
 		HttpSession session=request.getSession();
+		
 		session.removeAttribute("ch");
 		session.setAttribute("ch", "0");
 		String id=(String)session.getAttribute("id");
@@ -24,6 +25,8 @@ import net.member.db.MemberService;
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
+		
+		System.out.println("page"+page);
 		
 		BoardService service = new BoardService();
 		int listcount=service.selectCount(); //총 리스트 수
