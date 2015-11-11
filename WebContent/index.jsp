@@ -18,7 +18,7 @@
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/style_main.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%=request.getContextPath()%>/css/style_mob.css">
 
-<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
+<link rel="stylesheet" media="screen and (min-width: 501px)" href="<%= request.getContextPath() %>/menu/css/style.css">
 <link rel="stylesheet" media="screen and (max-width: 500px)" href="<%= request.getContextPath() %>/menu/css/style_mob.css">
 
 <!-- write CSS -->
