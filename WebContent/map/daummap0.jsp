@@ -316,15 +316,15 @@ for(int i=0;i<boardList.size();i++){
  }         
  
 ];
-		<%} }%> 
 	        
  for(var i=0; i<latlng.length; i++){
 		addMarker(latlng[i].latlng,latlng[i].title);
-	  }                
+	  }
  
 		// 마커를 생성하고 지도위에 표시하는 함수입니다.
 		
-		
+	<%} }%> 
+
 		function addMarker(position, title) {
 		  var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 		  var imageSize = new daum.maps.Size(24, 35); 
