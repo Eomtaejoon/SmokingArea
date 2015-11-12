@@ -127,7 +127,7 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div id="map">
-				<jsp:include page="map/daummap.jsp" flush="false"></jsp:include>
+				<jsp:include page="map/daummap0.jsp" flush="false"></jsp:include>
 			</div>
 		</div>
 		<hr />

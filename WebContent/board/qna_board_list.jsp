@@ -35,15 +35,14 @@ $(document).ready(function(){
 
 
 function aa(a){
-   	alert(a);
-       $.ajax({
-    	   url: "/last_project/BoardList.bo", 
-    	   data:{
-    		   page : a
-       	   },
-       	   success: function(result){
-       		   $('#contents').html(result);
-       }});
+	$.ajax({
+		url: "/last_project/BoardList.bo", 
+		data:{
+			page : a
+			},
+			success: function(result){
+			$('#contents').html(result);
+	}});
 }
 
 
@@ -81,7 +80,8 @@ function aa(a){
 	<div class="contents">
 <%-- 	<%if(id!=null && id.equals("admin")){%> --%>
 	<div><a href="./BoardModify.bo?num=<%=bl.getNum() %>">수정</a> 
-		 <a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">삭제</a> </div>
+		 <a href="./BoardDeleteAction.bo?num
+		 =<%=bl.getNum()%>">삭제</a> </div>
 	<%-- <%}%> --%>
 	<article>
 	    <input type="checkbox" id="read_more<%=i+1 %>" role="button">
@@ -89,11 +89,11 @@ function aa(a){
 	      
 	    <figure>
 	        <img src="<%=request.getContextPath()%>/boardupload/<%=bl.getImg()%>" alt="I'm an owl" />
-	        <p><%=bl.getImg()%></p>
+	        <%-- <p><%=bl.getImg()%></p> --%>
 	    </figure>
 	
 	    <section>
-	    <p>제목 : <%=bl.getTitle() %></p>
+	    <p style="text-align: center;">제목 : <%=bl.getTitle() %></p>
 	    </section>    
 		<section>
 	    <p><%=bl.getContent() %></p>
@@ -108,7 +108,7 @@ function aa(a){
 			<%if(nowpage<=1){ %>
 			[이전]&nbsp;
 			<%}else{ %>
-			<a href="BoardList.bo?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+			<a href="javascript:aa(<%=nowpage-1 %>)">[이전]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
@@ -123,7 +123,7 @@ function aa(a){
 			<%if(nowpage>=maxpage){ %>
 			[다음]
 			<%}else{ %>
-			<a href="BoardList.bo?page=<%=nowpage+1 %>">[다음]</a>
+			<a href="javascript:aa(<%=nowpage+1 %>)">[다음]</a>
 			<%} %>
 		</td>
 	</tr>

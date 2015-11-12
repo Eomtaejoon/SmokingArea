@@ -1,8 +1,8 @@
+<%@page import="net.entity.mapBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-        <%@page import="src.bean.mapBean"%>
 <%@page import="java.util.List"%>
-<% List <mapBean> boardList=(List)session.getAttribute("boardlist1"); 
+<% List <mapBean> boardList=(List)session.getAttribute("maplist"); 
 request.setCharacterEncoding("euc-kr");
 %>
 <!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

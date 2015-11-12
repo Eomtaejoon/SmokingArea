@@ -1,14 +1,13 @@
+<%@page import="net.entity.mapBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="src.bean.mapBean"%>
 <%@page import="java.util.List"%>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<% List <mapBean> boardList=(List)session.getAttribute("boardlist1"); 
+<% List <mapBean> boardList=(List)session.getAttribute("maplist"); 
 request.setCharacterEncoding("euc-kr");
 %>
-
 
 <head>
 

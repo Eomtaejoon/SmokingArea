@@ -7,7 +7,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import net.dao.MySQLSessionFactory;
+import net.entity.BoardBean;
 import net.entity.MemberBean;
+import net.entity.mapBean;
 
 //MySQLSessionFactory
 public class MemberService {
@@ -48,10 +50,21 @@ public class MemberService {
 			session.close();
 			return result;
 		}
-		
-		
 	}
-
 	
+	//페이징
+	public List<mapBean> mapSelect() {
+
+		SqlSession session = MySQLSessionFactory.openSession();
+		// list객체 생성
+		List<mapBean> list = null;
+		try {
+			// 페이징
+			list = session.selectList("memberMappeing.mapselect");
+		} finally {
+			session.close();
+		}
+		return list;
+	}// end selectByPage
 	
 }//end class

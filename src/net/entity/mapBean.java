@@ -1,4 +1,4 @@
-package src.bean;
+package net.entity;
 
 public class mapBean {
 	private String title;

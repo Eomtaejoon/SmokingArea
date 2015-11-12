@@ -18,6 +18,10 @@
 		where member_id = #{member_id}
 	</select>
 	
+	<select id="mapselect" resultType="net.entity.mapBean">
+		select * from map
+	</select>
+	
 	
 	
 <!-- 

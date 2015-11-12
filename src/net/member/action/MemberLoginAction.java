@@ -1,6 +1,8 @@
 package net.member.action;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ public class MemberLoginAction implements Action{
 		 	
 		 	HttpSession session=request.getSession();
 	   		MemberBean member=new MemberBean();
+	   		List maplist=new ArrayList();
 	   		
 	   		int result=-1;
 	   		
@@ -24,6 +27,9 @@ public class MemberLoginAction implements Action{
 	   		member.setMember_pw(request.getParameter("MEMBER_PW"));
 	   		
 	   		MemberService service = new MemberService();
+	   		
+	   		maplist = service.mapSelect(); //map 리스트 받아오는
+	   		
 	   		
 	   		result=service.login(member.getMember_id());
 	   		
@@ -48,6 +54,8 @@ public class MemberLoginAction implements Action{
 		   	}
 	   		
 	   		//로그인 성공
+	   		
+	   		session.setAttribute("maplist", maplist);
 	   		session.setAttribute("id", member.getMember_id()); //세션에 id등록
 	   		session.setAttribute("ch", "0");
 	   		

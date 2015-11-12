@@ -25,9 +25,7 @@ import net.member.db.MemberService;
 		if(request.getParameter("page")!=null){
 			page=Integer.parseInt(request.getParameter("page"));
 		}
-		
-		System.out.println("page"+page);
-		
+				
 		BoardService service = new BoardService();
 		int listcount=service.selectCount(); //총 리스트 수
 		boardlist = service.selectByPage(page,limit); //실질적인 리스트 받아오는
