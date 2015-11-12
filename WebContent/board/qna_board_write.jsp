@@ -22,15 +22,37 @@ function save(){
 function cancle(){
             $("#write_box").empty(); 
 }
+
+function change(){
+
+	var latlng = map.getCenter();
+		var lat1 = latlng.getLat();
+		var lng1 = latlng.getLng();
+		var addText1 = document.createElement("input");
+		addText1.setAttribute("type", "text");
+		addText1.setAttribute("value", lat1);
+		addText1.setAttribute("name", "lat");
+		document.getElementById("qqq").appendChild(addText1);
+
+		var addText2 = document.createElement("input");
+		addText2.setAttribute("type", "text");
+		addText2.setAttribute("value", lng1);
+		addText2.setAttribute("name", "lng");
+		document.getElementById("qqq").appendChild(addText2);
+	if(lat1==null){
+		return false;
+	}
+}
 </script>
 
 
 
 <body>
 	<!-- 게시판 등록 -->
-	<form name="boardform" action="BoardAddAction.bo" method="post" enctype="multipart/form-data" >
+	<form name="boardform" action="BoardAddAction.bo" method="post" enctype="multipart/form-data" onsubmit="return change()">
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
-
+		<div id="qqq"></div>
+		
 		<div class="writeform">
 			<div class="head">
 				<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요">
@@ -46,7 +68,7 @@ function cancle(){
 			<textarea name="content" placeholder="악성&사행성 게시글 및 덧글은 예고없이 삭제될 수 있습니다." style="float: left;"></textarea>
 		</div>
 		<div class="writeform">	
-			<button class="btn btn-success" type="submit" onclick="save()">글저장</button>
+			<input class="btn btn-success" type="submit" value="글저장" />
 			<button class="btn btn-success" type="button" onclick="cancle()">취소</button>
 		</div>
 	</form>

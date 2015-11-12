@@ -2,17 +2,12 @@
 <%
 	/* 세션  연결 */
 	String id = (String)session.getAttribute("id");
-
 	String ch = (String)session.getAttribute("ch");
-	
 	boolean login = id == null ? false : true;
 	System.out.print(ch);
-%>	
-
+%>
 <html>
-
 <head>
-
 <meta charset="utf-8" />
 <title>Smoking Area</title>
 <link rel="stylesheet" media="screen and (min-width: 501px)" href="<%=request.getContextPath()%>/css/style_main.css">
@@ -88,7 +83,7 @@ $(document).ready(function(){
 
 		<div class="row" id="home">
 			<div class="large-3 columns" id="logo">
-				<a href="<%= request.getContextPath() %>/index.me"><img src="img/logo_main.png" /></a>
+				<a href="troy.labs.daum.net"><img src="img/logo_main.png" /></a>
 			</div>
 			<div style="text-align: right;">
 				<%=id %> 님 접속 
