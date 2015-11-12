@@ -30,6 +30,7 @@ function cancle(){
 	<!-- 게시판 등록 -->
 	<form name="boardform" action="BoardAddAction.bo" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
+
 		<div class="writeform">
 			<div class="head">
 				<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요">

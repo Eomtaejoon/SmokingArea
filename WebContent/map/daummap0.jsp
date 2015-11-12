@@ -5,7 +5,7 @@
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<% List <mapBean> boardList=(List)session.getAttribute("maplist"); 
+<% List <mapBean> boardList=(List)session.getAttribute("maplist");
 request.setCharacterEncoding("euc-kr");
 %>
 
@@ -168,7 +168,8 @@ if (navigator.geolocation) {
         
         var lat = position.coords.latitude, // 위도
             lon = position.coords.longitude; // 경도
-        circlego(lat,lon);
+        
+            circlego(lat,lon);
         var locPosition = new daum.maps.LatLng(lat, lon),
          message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용입니다
           // 마커와 인포윈도우를 표시합니다
@@ -219,111 +220,108 @@ function displayMarker(locPosition, message) {
     
 }
 
-function num(){
+
+function num() {
+
+	var latlng = map.getCenter();
+	var lat1 = latlng.getLat();
+	var lng1 = latlng.getLng();
+	var level = map.getLevel();
 	
-	   
-	 var latlng = map.getCenter();
-	 var lat1 = latlng.getLat();
-	 var level = map.getLevel();
-	  var lng1 = latlng.getLng();
-	  
-	  var addText1 = document.createElement("input");
-		addText1.setAttribute("type","text");
-		addText1.setAttribute("value",lat1);
-		addText1.setAttribute("name","aaaa");
-		document.getElementById("qqq").appendChild(addText1); 
+	var addText1 = document.createElement("input");
+	addText1.setAttribute("type", "text");
+	addText1.setAttribute("value", lat1);
+	addText1.setAttribute("name", "aaaa");
+	document.getElementById("qqq").appendChild(addText1);
+
+	var addText2 = document.createElement("input");
+	addText2.setAttribute("type", "text");
+	addText2.setAttribute("value", lng1);
+	addText2.setAttribute("name", "bbbb");
+	document.getElementById("qqq").appendChild(addText2);
+
+	var addText3 = document.createElement("input");
+	addText3.setAttribute("type", "text");
+	addText3.setAttribute("value", level);
+	addText3.setAttribute("name", "cccc");
+	document.getElementById("qqq").appendChild(addText3);
+
+}
+
+	// 장소 검색 객체를 생성합니다
+	var ps = new daum.maps.services.Places(map);
+
+	// 지도에 idle 이벤트를 등록합니다
+	daum.maps.event.addListener(map, 'idle', searchPlaces);
+
+	// 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
+	contentNode.className = 'placeinfo_wrap';
+
+	// 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
+	// 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 daum.maps.event.preventMap 메소드를 등록합니다 
+	addEventHandle(contentNode, 'mousedown', daum.maps.event.preventMap);
+	addEventHandle(contentNode, 'touchstart', daum.maps.event.preventMap);
+
+	// 커스텀 오버레이 컨텐츠를 설정합니다
+	placeOverlay.setContent(contentNode);
+
+	// 각 카테고리에 클릭 이벤트를 등록합니다
+	addCategoryClickEvent();
+
+	// 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
+	function addEventHandle(target, type, callback) {
+		if (target.addEventListener) {
+			target.addEventListener(type, callback);
+		} else {
+			target.attachEvent('on' + type, callback);
+		}
+	}
+
+	// 카테고리 검색을 요청하는 함수입니다
+	function searchPlaces() {
+
+		// 커스텀 오버레이를 숨깁니다 
+		placeOverlay.setMap(null);
+
+		if (!currCategory) {
+			return;
+		}
+		if (currCategory === "sm2") {
+			
+			smsm();
+		} else {
+
+			ps.categorySearch(currCategory, placesSearchCB, {
+				useMapBounds : true
+			});
+		}
+	}
+
+	function smsm() {
 		
-		var addText2 = document.createElement("input");
-		addText2.setAttribute("type","text");
-		addText2.setAttribute("value",lng1);
-		addText2.setAttribute("name","bbbb");
-		document.getElementById("qqq").appendChild(addText2); 
-	  
-		 var addText3 = document.createElement("input");
-			addText3.setAttribute("type","text");
-			addText3.setAttribute("value",level);
-			addText3.setAttribute("name","cccc");
-			document.getElementById("qqq").appendChild(addText3); 
-	 
-	
-	  
-
-}
-
-// 장소 검색 객체를 생성합니다
-var ps = new daum.maps.services.Places(map); 
-
-// 지도에 idle 이벤트를 등록합니다
-daum.maps.event.addListener(map, 'idle', searchPlaces);
-
-// 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
-contentNode.className = 'placeinfo_wrap';
-
-// 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
-// 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 daum.maps.event.preventMap 메소드를 등록합니다 
-addEventHandle(contentNode, 'mousedown', daum.maps.event.preventMap);
-addEventHandle(contentNode, 'touchstart', daum.maps.event.preventMap);
-
-// 커스텀 오버레이 컨텐츠를 설정합니다
-placeOverlay.setContent(contentNode);  
-
-// 각 카테고리에 클릭 이벤트를 등록합니다
-addCategoryClickEvent();
-
-// 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
-function addEventHandle(target, type, callback) {
-    if (target.addEventListener) {
-        target.addEventListener(type, callback);
-    } else {
-        target.attachEvent('on' + type, callback);
-    }
-}
-
-// 카테고리 검색을 요청하는 함수입니다
-function searchPlaces() {
-    
-    // 커스텀 오버레이를 숨깁니다 
-    placeOverlay.setMap(null);
-
-    if (!currCategory) {
-        return;
-    }    if (currCategory === "sm2") {    	
-    	  	smsm();
-    }else{
-    
-    ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true});
-    }
-}
-
-
-
-function smsm(){
-	
-
-	removeMarker();
+		removeMarker();
 
 		// 지도에 표시된 마커 객체를 가지고 있을 배열입니다
-		
-	
 <%
 if( boardList != null){ 
 for(int i=0;i<boardList.size();i++){
 	mapBean bean = boardList.get(i);
-  
+	
  %> 
 	var latlng = [ 
  {
      title: '<%=bean.getTitle()%>', 
      latlng: new daum.maps.LatLng(<%=bean.getLat()%>, <%=bean.getLng()%>)
+ 
  }         
-
+ 
 ];
 		<%} }%> 
 	        
  for(var i=0; i<latlng.length; i++){
 		addMarker(latlng[i].latlng,latlng[i].title);
 	  }                
-
+ 
 		// 마커를 생성하고 지도위에 표시하는 함수입니다.
 		
 		

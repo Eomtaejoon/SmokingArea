@@ -30,7 +30,6 @@ public class MemberLoginAction implements Action{
 	   		
 	   		maplist = service.mapSelect(); //map 리스트 받아오는
 	   		
-	   		
 	   		result=service.login(member.getMember_id());
 	   		
 	   		if(result==0){
@@ -54,7 +53,6 @@ public class MemberLoginAction implements Action{
 		   	}
 	   		
 	   		//로그인 성공
-	   		
 	   		session.setAttribute("maplist", maplist);
 	   		session.setAttribute("id", member.getMember_id()); //세션에 id등록
 	   		session.setAttribute("ch", "0");

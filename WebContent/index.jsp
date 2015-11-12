@@ -37,13 +37,16 @@
 
 
 <script>
+
+
 function go(){
 	if(<%=ch%>=="1"){
         $.ajax({url: "/last_project/BoardList.bo", success: function(result){
             $("#contents").html(result);
         }});
-	} 
+	}
 }
+
 
 $(document).ready(function(){
     $("#board").click(function(){

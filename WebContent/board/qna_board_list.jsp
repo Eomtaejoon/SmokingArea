@@ -45,7 +45,24 @@ function aa(a){
 	}});
 }
 
+function change(){
 
+	var latlng = map.getCenter();
+		var lat1 = latlng.getLat();
+		var lng1 = latlng.getLng();
+
+		var addText1 = document.createElement("input");
+		addText1.setAttribute("type", "text");
+		addText1.setAttribute("value", lat1);
+		addText1.setAttribute("name", "lat");
+		document.getElementById("qqq").appendChild(addText1);
+
+		var addText2 = document.createElement("input");
+		addText2.setAttribute("type", "text");
+		addText2.setAttribute("value", lng1);
+		addText2.setAttribute("name", "lng");
+		document.getElementById("qqq").appendChild(addText2);
+}
 </script>
 </head>
 <body>
@@ -53,7 +70,11 @@ function aa(a){
 <!-- 게시판 리스트 -->
 <div class="row">
 <div class="large-6 columns">
-<div id="write_box"></div>
+<div id="write_box">
+
+</div>
+<div id="qqq"></div>
+
 </div>
 <div class="large-6 columns">
 <table class="contents_head">
