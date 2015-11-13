@@ -20,10 +20,16 @@
 		, #{b_id} , #{title} , #{content}, #{img})
 	</insert>
 	
-	<!-- 게시판 등록 -->
+	<!-- 지도 마커 등록 -->
 	<insert id="mapinsert" parameterType="net.entity.mapBean">
-		insert into map(lat,lng ) values (#{lat} , #{lng})
+		insert into map(title, lat, lng ) values (#{title}, #{lat} , #{lng})
 	</insert>
+	
+	<!-- 지도 마커 등록 -->
+	<insert id="commdinsert" parameterType="net.entity.CommendBean">
+		insert into map(title, lat, lng ) values (#{title}, #{lat} , #{lng})
+	</insert>
+	
 	
 	<!-- 게시판 삭제 -->
 	<delete id="boardDelete" parameterType="int"> 

@@ -56,6 +56,8 @@ public class BoardAddAction implements Action {
    			boardbean.setContent(multi.getParameter("content"));
    			boardbean.setImg(fileName);
    			
+   			
+   			mapbean.setTitle(multi.getParameter("title"));
    			mapbean.setLat(multi.getParameter("lat"));
    			mapbean.setLng(multi.getParameter("lng"));
    			/*System.out.println(multi.getFilesystemName("uploadFile"));*/

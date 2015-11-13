@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import net.dao.MySQLSessionFactory;
 import net.entity.BoardBean;
+import net.entity.CommendBean;
 import net.entity.MemberBean;
 import net.entity.mapBean;
 
@@ -62,7 +63,7 @@ public class BoardService {
 		}
 	}//end insert
 	
-	//글등록
+	//지도등록
 	@SuppressWarnings("finally")
 	public boolean mapinsert(mapBean map){
 		SqlSession session = MySQLSessionFactory.openSession();
@@ -80,6 +81,30 @@ public class BoardService {
 			return true;
 		}
 	}//end insert	
+	
+	//덧글 등록
+	@SuppressWarnings("finally")
+	public boolean commdinsert(CommendBean cmd){
+		SqlSession session = MySQLSessionFactory.openSession();
+		//코드 패턴
+		try{
+			//id값 반드시 일치
+			int n = session.insert("boardMappeing.commdinsert", cmd);
+			// n값은 작용된 레코드
+			if(n==1){
+				session.commit();
+				
+			}
+		}finally{
+			session.close();
+			return true;
+		}
+	}//end insert	
+
+
+
+	
+	
 	//list readcountupdate
 	@SuppressWarnings("finally")
 	public void readCountUpdate(int num){
