@@ -28,8 +28,11 @@
 <!-- icon CSS -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/icon/font-awesome.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- slider CSS -->
+<link rel="stylesheet" href="<%= request.getContextPath() %>/slider/css/style.css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="slider/js/prefixfree.min.js"></script>
 
 <script>
 
@@ -98,14 +101,24 @@ $(document).ready(function(){
 		<div class="row">
 			<div class="large-12 columns">
 				<div class="slider">
-					<jsp:include page="slider/slider.jsp" flush="false"></jsp:include>
+					<div id="slider">
+						<figure>
+						<img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
+						<img src="http://demosthenes.info/assets/images/taj-mahal.jpg" alt="">
+						<img src="http://demosthenes.info/assets/images/ibiza.jpg" alt="">
+						<img src="http://demosthenes.info/assets/images/ankor-wat.jpg" alt="">
+						<img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
+						</figure>
+					</div>
+					<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 				</div>
 			</div>
 		</div>
 		<hr />
 
 		<div class="row">
-			<div class="large-4 columns" id="best">
+			<div id="best">
+			<div class="large-4 columns">
 				<img src="img/1.jpg" />
 				<h4>Best content section.</h4>
 				<p>db 좋아요 누계 1순위</p>
@@ -119,6 +132,7 @@ $(document).ready(function(){
 				<img src="img/3.jpg" />
 				<h4>Best content section.</h4>
 				<p>db 좋아요 누계 3순위</p>
+			</div>
 			</div>
 		</div>
 	</div>
