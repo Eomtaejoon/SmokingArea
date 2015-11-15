@@ -1,8 +1,6 @@
 package net.board.action;
 
-import java.lang.Math;
 import java.util.Enumeration;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

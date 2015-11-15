@@ -59,7 +59,14 @@ import javax.servlet.http.HttpSession;
 				   forward=action.execute(request, response );
 			   } catch (Exception e) {
 				   e.printStackTrace();
-			   }	   
+			   }
+	 	   }else if(command.equals("/ComdListAction.bo")){
+			   action  = new ComdListAction();
+			   try {
+				   forward=action.execute(request, response );
+			   } catch (Exception e) {
+				   e.printStackTrace();
+			   }
 		   }else if(command.equals("/BoardReplyView.bo")){
 			   action = new BoardReplyAction();
 			   try{

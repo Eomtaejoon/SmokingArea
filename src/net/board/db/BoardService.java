@@ -93,7 +93,6 @@ public class BoardService {
 			// n값은 작용된 레코드
 			if(n==1){
 				session.commit();
-				
 			}
 		}finally{
 			session.close();
@@ -101,8 +100,20 @@ public class BoardService {
 		}
 	}//end insert	
 
+	//comtselect
+	public List<CommendBean> comtselect() {
 
-
+		SqlSession session = MySQLSessionFactory.openSession();
+		// list객체 생성
+		List<CommendBean> list = null;
+		try {
+			// 페이징
+			list = session.selectList("boardMappeing.comtselect");
+		} finally {
+			session.close();
+		}
+		return list;
+	}// end mapselect
 	
 	
 	//list readcountupdate

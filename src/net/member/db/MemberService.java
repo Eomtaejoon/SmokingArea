@@ -1,13 +1,10 @@
 package net.member.db;
 
-import java.util.HashMap;
 import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import net.dao.MySQLSessionFactory;
-import net.entity.BoardBean;
 import net.entity.MemberBean;
 import net.entity.mapBean;
 
@@ -15,14 +12,12 @@ import net.entity.mapBean;
 public class MemberService {
 	
 	@SuppressWarnings("finally")
+	//sinup
 	public boolean sinup(MemberBean member){
 		SqlSession session = MySQLSessionFactory.openSession();
-		//肄붾뱶 �뙣�꽩
 		try{
-			//id媛� 諛섎뱶�떆 �씪移�
 			int n = session.insert("memberMappeing.sinup", member);
 			System.out.println(n);
-			// n媛믪� �옉�슜�맂 �젅肄붾뱶
 			if(n==1){
 				session.commit();
 				
@@ -33,14 +28,13 @@ public class MemberService {
 		}
 	}//end sinup
 	
+	//login
 	@SuppressWarnings("finally")
 	public int login(String member_id){
 		int result = 0;
 		SqlSession session = MySQLSessionFactory.openSession();
-		//肄붾뱶 �뙣�꽩
 		MemberBean bean = null;
 		try{
-			//id媛� 諛섎뱶�떆 �씪移�
 			bean = session.selectOne("memberMappeing.login", member_id);
 			
 			if(bean!=null){
@@ -52,7 +46,7 @@ public class MemberService {
 		}
 	}
 	
-	//페이징
+	//mapselect
 	public List<mapBean> mapSelect() {
 
 		SqlSession session = MySQLSessionFactory.openSession();
@@ -65,6 +59,6 @@ public class MemberService {
 			session.close();
 		}
 		return list;
-	}// end selectByPage
+	}// end mapselect
 	
 }//end class
