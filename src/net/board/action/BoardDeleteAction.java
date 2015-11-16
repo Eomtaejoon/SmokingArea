@@ -20,15 +20,12 @@ public class BoardDeleteAction implements Action {
 
 	   	boolean result=false;
 	   	boolean usercheck=false;
+	   
 	   	int num=Integer.parseInt(request.getParameter("num"));
-	   	
-	   	System.out.println("num=" + num);
 	   	
 	   	BoardService service = new BoardService(); //서비스 객체 생성
    		
 	 
-	   	/*BoardDAO boarddao=new BoardDAO();
-	   	usercheck=boarddao.isBoardWriter(num, id);*/
 	   	if(id!="admin"){
 	   	  	usercheck = service.isBoardWriter(num, id); 
 		   	if(usercheck==false){

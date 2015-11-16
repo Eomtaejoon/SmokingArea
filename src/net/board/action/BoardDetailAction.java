@@ -3,6 +3,7 @@ package net.board.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.board.db.BoardService;
 import net.entity.BoardBean;
@@ -11,7 +12,7 @@ import net.entity.BoardBean;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 throws Exception{ 
 		request.setCharacterEncoding("euc-kr");
-
+		HttpSession session=request.getSession();
 		
 		BoardBean boardlist=new BoardBean();
 	   	BoardService service = new BoardService(); //서비스생성
@@ -31,8 +32,9 @@ import net.entity.BoardBean;
 	   	
 	   	request.setAttribute("boardlist", boardlist);
 	   	ActionForward forward = new ActionForward();
-	   	forward.setRedirect(false);
-   		forward.setPath("/board/qna_board_view.jsp");
+	   	forward.setRedirect(true);
+	   	forward.setPath("./index.me");
+   		session.setAttribute("ch", "1");
    		return forward;
 
 	 }

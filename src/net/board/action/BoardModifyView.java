@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.board.db.BoardDAO;
+import net.board.db.BoardService;
 import net.entity.BoardBean;
 
 public class BoardModifyView implements Action {
@@ -12,19 +13,19 @@ public class BoardModifyView implements Action {
 		 	ActionForward forward = new ActionForward();
 		 	request.setCharacterEncoding("euc-kr");
 	   		
-			BoardDAO boarddao=new BoardDAO();
-		   	BoardBean boarddata=new BoardBean();
-		   	
+			BoardBean boardlist=new BoardBean();
+			BoardService service = new BoardService(); //서비스생성
 			int num=Integer.parseInt(request.getParameter("num"));
-		   	boarddata=boarddao.getDetail(num);
+		   
+			boardlist=service.detail(num);
 		   	
-		   	if(boarddata==null){
-		   		System.out.println("(����)�󼼺��� ����");
+		   	if(boardlist==null){
+		   		System.out.println("(63번)수정 실패");
 		   		return null;
 		   	}
-		   	System.out.println("(����)�󼼺��� ����");
+		   	System.out.println("(63번)수정 시작");
 		   	
-		   	request.setAttribute("boarddata", boarddata);
+		   	request.setAttribute("boardlist", boardlist);
 		   	forward.setRedirect(false);
 	   		forward.setPath("/board/qna_board_modify.jsp");
 	   		return forward;

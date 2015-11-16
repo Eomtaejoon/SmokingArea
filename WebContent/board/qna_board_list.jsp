@@ -46,6 +46,7 @@ function aa(a){
 }
 
 
+
 </script>
 </head>
 <body>
@@ -71,7 +72,7 @@ function aa(a){
 			<%if(id!=null && id.equals("admin")){%>
 				<a href="MemberListAction.me">[회원관리]</a>
 			<%}%>
-	   		<a id="write" onclick="change()">[글쓰기]</a>
+	   		<a id="write">[글쓰기]</a>
 		</td>
 	</tr>
 </table>
@@ -87,19 +88,21 @@ function aa(a){
 		 <a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">삭제</a> </div>
 	<%-- <%}%> --%>
 	<article>
-	    <input type="checkbox" id="read_more<%=i+1 %>" role="button">
-	    <label for="read_more<%=i+1 %>" onclick=""><span>Read More</span><span>Hide This Shit!</span></label>     
+	    <input type="checkbox" id="read_more<%=i+1 %>" role="button" onclick="cc(this);" />
+	    <label for="read_more<%=i+1 %>"><span>Read More</span><span>Hide This Shit!</span></label>     
 	      
 	    <figure>
 	        <img src="<%=request.getContextPath()%>/boardupload/<%=bl.getImg()%>" alt="I'm an owl" />
-	        <%-- <p><%=bl.getImg()%></p> --%>
 	    </figure>
-	
-	    <section>
-	    <p style="text-align: center;">제목 : <%=bl.getTitle() %></p>
-	    </section>    
-		<section>
-	    <p><%=bl.getContent() %></p>
+
+	    <section style="text-align: center;">
+	    <p>제목 : <%=bl.getTitle() %></p>
+	    </section>
+   	    <section style="text-align: center;">
+		    <p>본문 내용<br>
+		    <%=bl.getContent() %>
+		    	<div style="text-align: right;"><a id="write" onclick="change()">[댓글]</a></div>
+		    </p>
 		</section>
 	</article>
 	</div>

@@ -35,16 +35,25 @@
 		select * from comments
 	</select>
 	
-	
 	<!-- 게시판 삭제 -->
 	<delete id="boardDelete" parameterType="int"> 
 		delete from board 
 		where num = #{num} 
 	</delete>
 	
+	<!-- 게시글 수정 -->
+	<update id="boardUpdate" parameterType="net.entity.BoardBean">
+		update board 
+		set title = #{title} , content = #{content} 
+		where num = #{num}
+	</update>
+	
+	
 	<!-- 조회수 -->
 	<update id="readCountUpdate" parameterType="net.entity.BoardBean">
-		update board set readcount = readcount+1 where num = #{num}
+		update board 
+		set readcount = readcount+1 
+		where num = #{num}
 	</update>
 	
 	<!-- num 글 조회 -->
@@ -52,6 +61,8 @@
 	select * from
 		board where num = #{num}
 	</select>
+	
+	
 	
 	<!-- 번호로 삭제 
 	<delete id="boardDelete" parameterType="int"> 

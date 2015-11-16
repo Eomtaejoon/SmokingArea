@@ -74,7 +74,6 @@ public class BoardService {
 			// n값은 작용된 레코드
 			if(n==1){
 				session.commit();
-				
 			}
 		}finally{
 			session.close();
@@ -117,7 +116,6 @@ public class BoardService {
 	
 	
 	//list readcountupdate
-	@SuppressWarnings("finally")
 	public void readCountUpdate(int num){
 		SqlSession session = MySQLSessionFactory.openSession();
 		//코드 패턴
@@ -134,8 +132,7 @@ public class BoardService {
 		}
 	}//end readCountUpdate
 	
-	//list readcount
-	@SuppressWarnings("finally")
+	//list detail
 	public BoardBean detail(int num){
 		SqlSession session = MySQLSessionFactory.openSession();
 		//코드 패턴
@@ -147,15 +144,16 @@ public class BoardService {
 		}finally{
 			session.close();
 		}return bean;
-	}//end readCountUpdate
+	}//end detail
 
+	
 	//list delete
 	public void delete(int num) {
 		SqlSession session = MySQLSessionFactory.openSession();
 		// 코드 패턴
 		try {
 			// id값 반드시 일치(대소문자 구별)
-			int n = session.delete("boardMappeing.boardDelete", num);
+			int n = session.delete("boardMappeing.boardUpdate", num);
 			// n값은 작용된 레코드
 			if (n == 1) {
 				session.commit();
@@ -179,6 +177,22 @@ public class BoardService {
 			session.close();
 		}
 		return blean;
+	}
+	
+	@SuppressWarnings("finally")
+	public void boardModify(BoardBean modify) {
+		SqlSession session = MySQLSessionFactory.openSession();
+		
+		try {
+			int n = session.update("boardMappeing.boardUpdate", modify); // id값 / parameter값
+			// n값은 작용된 레코드
+			System.out.println("modify n = " + n);
+			if (n == 1) {
+				session.commit();
+			}
+		} finally {
+			session.close();
+		}
 	}
 	
 }//end class
