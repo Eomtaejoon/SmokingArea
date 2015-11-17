@@ -100,14 +100,15 @@ public class BoardService {
 	}//end insert	
 
 	//comtselect
-	public List<CommendBean> comtselect() {
+	public List<CommendBean> comtselect(int num) {
 
 		SqlSession session = MySQLSessionFactory.openSession();
 		// list객체 생성
 		List<CommendBean> list = null;
 		try {
 			// 페이징
-			list = session.selectList("boardMappeing.comtselect");
+			list = session.selectList("boardMappeing.comtselect", num);
+			System.out.println("service list"+list);
 		} finally {
 			session.close();
 		}

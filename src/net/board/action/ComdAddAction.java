@@ -16,7 +16,6 @@ public class ComdAddAction implements Action {
 		ActionForward forward=new ActionForward();
 	   	CommendBean commdBean = new CommendBean();
    		HttpSession session=request.getSession();
-   		session.setAttribute("id", "aa");
 
    		List comtlist=new ArrayList();
    		
@@ -25,9 +24,9 @@ public class ComdAddAction implements Action {
    			
    			
             //DB처리부
-   			commdBean.setId((String)session.getAttribute("id"));
+   			commdBean.setId(request.getParameter("comt_id"));
    			commdBean.setComments(request.getParameter("comment"));
-   			
+   			commdBean.setB_num(Integer.parseInt(request.getParameter("b_num")));
    			//boardService 객체 생성
    			BoardService service = new BoardService();
 	   		
@@ -39,7 +38,7 @@ public class ComdAddAction implements Action {
 	   		}
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("./ComdListAction.bo");
+	   		forward.setPath("./index.me");
 	   		session.setAttribute("ch", "1");
 	   		return forward;
 	   		

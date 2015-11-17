@@ -51,7 +51,8 @@ function change(){
 	<!-- 게시판 등록 -->
 	<form name="boardform" action="BoardAddAction.bo" method="post" enctype="multipart/form-data" onsubmit="return change()">
 		<input type="hidden" name="BOARD_ID" value="<%=id%>">
-		<div id="qqq"></div>
+		
+		<div id="qqq" style="display: none;"></div>
 		
 		<div class="writeform">
 			<div class="head">

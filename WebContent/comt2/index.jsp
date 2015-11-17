@@ -4,15 +4,18 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 
 <%
+	String id=null;
+
+	if(session.getAttribute("id")!=null){
+		id=(String)session.getAttribute("id");
+	}
 	List comtlist = (List)request.getAttribute("comtlist");
-	System.out.print("comtlist"+comtlist.size());
+	int b_num = ((Integer)request.getAttribute("b_num")).intValue();
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Comment Box Control</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/comt2/css/style.css">
 
 </head>
@@ -20,6 +23,9 @@
 	<div class="wrapper">
 		<div class="commentBoxfloat">
 			<form id="cmnt" action="ComdAddAction.bo" method="post">
+				<input type="hidden" name="comt_id" value="<%=id%>">
+				<input type="hidden" name="b_num" value="<%=b_num%>">
+				
 				<fieldset>
 					<div class="form_grp">
 						<label>comment</label>
@@ -39,7 +45,7 @@
 		<div id="cmntContr">
 			<div class='viewCmnt'>
 				<p>
-				<%=cl.getId() %> :  <%=cl.getComments() %>
+				<%=cl.getId() %> :  <%=cl.getComments() %>  작성일 : <%=cl.getToday() %> 
 				</p>
 				<span class='edit'></span><span class='delete'></span>
 			</div>

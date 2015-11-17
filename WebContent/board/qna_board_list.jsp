@@ -23,6 +23,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script>
+//글쓰기
 $(document).ready(function(){
     $("#write").click(function(){
         $.ajax({
@@ -33,7 +34,21 @@ $(document).ready(function(){
     });
 });
 
+//댓글
+function comt(num){
+    $("#co_write"+num).click(function(){
+        $.ajax({
+        	url: "/last_project/ComdListAction.bo", 
+        	data:{
+        		num : num
+        	},
+        	success: function(result){
+          	  $("#write_box").html(result);
+        }});
+    });
+}
 
+//페이징
 function aa(a){
 	$.ajax({
 		url: "/last_project/BoardList.bo", 
@@ -82,13 +97,14 @@ function aa(a){
 			BoardBean bl=(BoardBean)boardList.get(i);
 	%>
 	<!-- 게시판 -->
+	
 	<div class="contents">
 <%-- 	<%if(id!=null && id.equals("admin")){%> --%>
 	<div><a href="./BoardModify.bo?num=<%=bl.getNum() %>">수정</a> 
 		 <a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">삭제</a> </div>
 	<%-- <%}%> --%>
 	<article>
-	    <input type="checkbox" id="read_more<%=i+1 %>" role="button" onclick="cc(this);" />
+	    <input type="checkbox" id="read_more<%=i+1 %>" role="button" />
 	    <label for="read_more<%=i+1 %>"><span>Read More</span><span>Hide This Shit!</span></label>     
 	      
 	    <figure>
@@ -101,7 +117,7 @@ function aa(a){
    	    <section style="text-align: center;">
 		    <p>본문 내용<br>
 		    <%=bl.getContent() %>
-		    	<div style="text-align: right;"><a id="write" onclick="change()">[댓글]</a></div>
+		    	<div style="text-align: right;"><a id="co_write<%=bl.getNum()%>" onclick="comt(<%=bl.getNum()%>)">[댓글]</a></div>
 		    </p>
 		</section>
 	</article>
