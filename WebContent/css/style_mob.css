@@ -2,6 +2,11 @@
 	margin-left: 60px;
 }
 
+#user {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
