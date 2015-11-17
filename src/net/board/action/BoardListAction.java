@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import net.board.db.BoardDAO;
 import net.board.db.BoardService;
+import net.entity.BoardBean;
 import net.member.db.MemberService;
 
  public class BoardListAction implements Action {
@@ -31,10 +32,19 @@ import net.member.db.MemberService;
 		BoardService service = new BoardService();
 		int listcount=service.selectCount(); //총 리스트 수
 		
-		b_num = service.selectBnum(); //게시판 번호
+		
+		
 		/* int comtcount=service.cmtCount(); //덧글수 */
 		
 		boardlist = service.selectByPage(page,limit); //실질적인 리스트 받아오는
+		
+		//덧글 수 수정중
+/*		for(int i=0;i<boardlist.size();i++){
+			BoardBean bl=(BoardBean)boardlist.get(i);
+			System.out.println("1 num "+b_num);
+			b_num = service.comtCount(bl.getNum());
+			System.out.println("3 num "+b_num);
+		}*/
 		
 		//총 페이지 수
 		int maxpage=(int)((double)listcount/limit+0.95); //현재 페이지에 보여줄 시작 페이지 수

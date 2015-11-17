@@ -1,6 +1,8 @@
 package net.board.action;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +22,7 @@ public class BoardAddAction implements Action {
 	   	BoardBean boardbean = new BoardBean();
 	   	mapBean mapbean = new mapBean();
    		HttpSession session=request.getSession();
-   		
+		session.removeAttribute("boardlist1");
    		String saveFolder=request.getSession().getServletContext().getRealPath("/boardupload"); //파일 저장 경로
    		
    		System.out.println("saveFolder="+saveFolder);
@@ -28,6 +30,8 @@ public class BoardAddAction implements Action {
    		
    		boolean result=false;
    		boolean result1=false;
+   		List boardlist=new ArrayList();
+   		
    		try{
    			MultipartRequest multi = new MultipartRequest(request, saveFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
    			
@@ -67,11 +71,16 @@ public class BoardAddAction implements Action {
    			result1 = service.mapinsert(mapbean);
    			System.out.println("re1="+result1);  
    			result = service.insert(boardbean); 
-	   				 
+   			
+   			int page=1;  //기본적으로 1페이지 부터 시작.
+			int limit=3; //페이지당 개수 제한.
+   			boardlist = service.selectByPage(page,limit); //실질적인 리스트 받아오는
+	   		
 	   		if(result==false){
 	   			return null;
 	   		}
 	   		
+	   		session.setAttribute("boardlist1", boardlist); //상위 리스트
 	   		forward.setRedirect(true);
 	   		forward.setPath("./index.me");
 	   		session.setAttribute("ch", "1");

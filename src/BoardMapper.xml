@@ -39,6 +39,17 @@
 		order by num desc
 	</select>
 	
+	
+	<!-- 덧글 카운트 -->
+	<select id="comtCount" resultType="net.entity.JoinBean" parameterType="int">
+		select count(*) 
+		from comments
+		where b_num = (SELECT num 
+                       FROM board 
+                       where num = #{num})
+	</select>
+	
+	
 	<!-- 게시판 삭제 -->
 	<delete id="boardDelete" parameterType="int"> 
 		delete from board 

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import net.dao.MySQLSessionFactory;
 import net.entity.BoardBean;
 import net.entity.CommendBean;
+import net.entity.JoinBean;
 import net.entity.MemberBean;
 import net.entity.mapBean;
 
@@ -26,32 +27,24 @@ public class BoardService {
 		}
 		return count;
 	}// end select
+		
+	//덧글 카운트
+	public List<JoinBean> comtCount(int num) {
 
-	public List<BoardBean> selectBnum() {
-		List<BoardBean> list = null;
 		SqlSession session = MySQLSessionFactory.openSession();
+		// list객체 생성
+		System.out.println("2 num "+num);
+		List<JoinBean> list = null;
 		try {
-			list = session.selectList("boardMappeing.selectBnum"); // id값 / parameter값
-			
+			// 페이징
+			list = session.selectList("boardMappeing.comtCount",num);
+			System.out.println("list"+list);
 		} finally {
 			session.close();
 		}
 		return list;
-	}// end select
+	}// end selectByPage
 	
-	
-	public int cmtCount() {
-
-		SqlSession session = MySQLSessionFactory.openSession();
-		int count = 0;
-		try {
-			count = session.selectOne("boardMappeing.cmtCount"); // id값 / parameter값
-			
-		} finally {
-			session.close();
-		}
-		return count;
-	}// end select
 	
 	
 	//페이징
@@ -65,6 +58,7 @@ public class BoardService {
 			// 페이징
 			list = session.selectList("boardMappeing.boardByPage",
 					null, new RowBounds(startrow, limit));
+			System.out.println("list" + list);
 		} finally {
 			session.close();
 		}

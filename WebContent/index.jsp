@@ -1,10 +1,15 @@
+<%@page import="net.entity.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%
 	/* 세션  연결 */
 	String id = (String)session.getAttribute("id");
 	String ch = (String)session.getAttribute("ch");
 	boolean login = id == null ? false : true;
-	System.out.print(ch);
+	
+	List boardList1=(List)session.getAttribute("boardlist1");
+	System.out.print(boardList1);
 %>
 <html>
 <head>
@@ -120,23 +125,17 @@ $(document).ready(function(){
 		<hr />
 		
 		<div class="row">
+		<%
+			for(int i=0;i<3;i++){
+				BoardBean bl=(BoardBean)boardList1.get(i);
+		%>
 			<div id="best">
 			<div class="large-4 columns">
-				<img src="img/1.jpg" />
-				<h4>Best content section.</h4>
-				<p>db 좋아요 누계 1순위</p>
-			</div>
-			<div class="large-4 columns">
-				<img src="img/2.jpg" />
-				<h4>Best content section.</h4>
-				<p>db 좋아요 누계 2순위</p>
-			</div>
-			<div class="large-4 columns">
-				<img src="img/3.jpg" />
-				<h4>Best content section.</h4>
-				<p>db 좋아요 누계 3순위</p>
+				<img src="<%=request.getContextPath()%>/boardupload/<%=bl.getImg()%>" />
+				<div style="text-align: center;"><h4>제목 : <%=bl.getTitle() %></h4></div>
 			</div>
 			</div>
+		<%} %>
 		</div>
 	</div>
 
