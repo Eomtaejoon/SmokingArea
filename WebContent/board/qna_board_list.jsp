@@ -60,8 +60,6 @@ function aa(a){
 	}});
 }
 
-
-
 </script>
 </head>
 <body>
@@ -100,8 +98,11 @@ function aa(a){
 	
 	<div class="contents">
 <%-- 	<%if(id!=null && id.equals("admin")){%> --%>
-	<div><a href="./BoardModify.bo?num=<%=bl.getNum() %>">수정</a> 
-		 <a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">삭제</a> </div>
+	<div>
+		글번호 : <%=bl.getNum()%>
+		<a href="./BoardModify.bo?num=<%=bl.getNum() %>">수정</a> 
+		<a href="./BoardDeleteAction.bo?num=<%=bl.getNum()%>">삭제</a> 
+	</div>
 	<%-- <%}%> --%>
 	<article>
 	    <input type="checkbox" id="read_more<%=i+1 %>" role="button" />

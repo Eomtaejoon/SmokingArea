@@ -86,7 +86,7 @@ $(document).ready(function(){
 
 		<div class="row" id="home">
 			<div class="large-3 columns" id="logo">
-				<a href="troy.labs.daum.net"><img src="img/logo_main.png" /></a>
+				<a href="<%= request.getContextPath() %>/index.me"><img src="img/logo_main.png" /></a>
 			</div>
 			<div style="text-align: right;">
 				<%=id %> 님 접속 
@@ -115,7 +115,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 		<hr />
-
+		
 		<div class="row">
 			<div id="best">
 			<div class="large-4 columns">

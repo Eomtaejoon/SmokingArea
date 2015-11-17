@@ -27,6 +27,33 @@ public class BoardService {
 		return count;
 	}// end select
 
+	public List<BoardBean> selectBnum() {
+		List<BoardBean> list = null;
+		SqlSession session = MySQLSessionFactory.openSession();
+		try {
+			list = session.selectList("boardMappeing.selectBnum"); // id값 / parameter값
+			
+		} finally {
+			session.close();
+		}
+		return list;
+	}// end select
+	
+	
+	public int cmtCount() {
+
+		SqlSession session = MySQLSessionFactory.openSession();
+		int count = 0;
+		try {
+			count = session.selectOne("boardMappeing.cmtCount"); // id값 / parameter값
+			
+		} finally {
+			session.close();
+		}
+		return count;
+	}// end select
+	
+	
 	//페이징
 	public List<BoardBean> selectByPage(int page, int limit) {
 

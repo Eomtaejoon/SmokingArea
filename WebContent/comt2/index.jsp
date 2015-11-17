@@ -44,8 +44,9 @@
 		%> 
 		<div id="cmntContr">
 			<div class='viewCmnt'>
+				<div style="text-align: right;">작성일 : <%=cl.getToday() %> </div>
 				<p>
-				<%=cl.getId() %> :  <%=cl.getComments() %>  작성일 : <%=cl.getToday() %> 
+				글쓴이 : <%=cl.getId() %> [  <%=cl.getComments() %> ] 
 				</p>
 				<span class='edit'></span><span class='delete'></span>
 			</div>
