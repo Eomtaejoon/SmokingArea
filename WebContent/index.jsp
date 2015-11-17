@@ -106,11 +106,11 @@ $(document).ready(function(){
 				<div class="slider">
 					<div id="slider">
 						<figure>
-						<img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
-						<img src="http://demosthenes.info/assets/images/taj-mahal.jpg" alt="">
-						<img src="http://demosthenes.info/assets/images/ibiza.jpg" alt="">
-						<img src="http://demosthenes.info/assets/images/ankor-wat.jpg" alt="">
-						<img src="http://demosthenes.info/assets/images/austin-fireworks.jpg" alt="">
+						<img src="<%= request.getContextPath() %>/slider/img/1-1.jpg" alt="">
+						<img src="<%= request.getContextPath() %>/slider/img/1-2.jpg" alt="">
+						<img src="<%= request.getContextPath() %>/slider/img/1-3.jpg" alt="">
+						<img src="<%= request.getContextPath() %>/slider/img/1-4.jpg" alt="">
+						<img src="<%= request.getContextPath() %>/slider/img/1-1.jpg" alt="">
 						</figure>
 					</div>
 					<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
