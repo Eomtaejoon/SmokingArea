@@ -88,14 +88,17 @@ $(document).ready(function(){
 			<div class="large-3 columns" id="logo">
 				<a href="<%= request.getContextPath() %>/index.me"><img src="img/logo_main.png" /></a>
 			</div>
-			<div style="text-align: right;">
-				<%=id %> 님 접속 
-				<%if(id!=null){%>
-					<a href="<%= request.getContextPath() %>/MemberLogoutAction.me">로그아웃</a>
-				<%} %>
-			</div>
-			
 		</div>
+		
+		<div class="row" id="user">
+		<div style="text-align: right;">
+			<%=id %> 님 접속 
+			<%if(id!=null){%>
+				<a href="<%= request.getContextPath() %>/MemberLogoutAction.me">로그아웃</a>
+			<%} %>
+		</div>
+		</div>
+		
 
 	<div id="contents">
 		<div class="row">
