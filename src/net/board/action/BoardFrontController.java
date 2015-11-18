@@ -27,18 +27,9 @@ import javax.servlet.http.HttpSession;
 			   forward.setPath("/board/qna_board_write.jsp");
 			   
 		   }else if(command.equals("/index.me")){
-				   forward=new ActionForward();
-				   forward.setRedirect(false);
-				   forward.setPath("/index.jsp");
-				   
-				     
-		   }else if(command.equals("/BoardReplyAction.bo")){
-			   action = new BoardReplyView();
-			   try{
-				   forward=action.execute(request, response);
-			   }catch(Exception e){
-				   e.printStackTrace();
-			   }
+			   forward=new ActionForward();
+			   forward.setRedirect(false);
+			   forward.setPath("/index.jsp");
 		   }else if(command.equals("/BoardModify.bo")){
 			   action = new BoardModifyView();
 			   try{
@@ -65,13 +56,6 @@ import javax.servlet.http.HttpSession;
 			   try {
 				   forward=action.execute(request, response );
 			   } catch (Exception e) {
-				   e.printStackTrace();
-			   }
-		   }else if(command.equals("/BoardReplyView.bo")){
-			   action = new BoardReplyAction();
-			   try{
-				   forward=action.execute(request, response);
-			   }catch(Exception e){
 				   e.printStackTrace();
 			   }
 		   }else if(command.equals("/BoardModifyAction.bo")){
@@ -103,7 +87,6 @@ import javax.servlet.http.HttpSession;
 				   e.printStackTrace();
 			   }
 		   }
-		   
 		   if(forward.isRedirect()){
 			   response.sendRedirect(forward.getPath());
 		   }else{

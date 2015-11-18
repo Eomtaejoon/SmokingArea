@@ -175,7 +175,7 @@ public class BoardService {
 		// 코드 패턴
 		try {
 			// id값 반드시 일치(대소문자 구별)
-			int n = session.delete("boardMappeing.boardUpdate", num);
+			int n = session.delete("boardMappeing.boardDelete", num);
 			// n값은 작용된 레코드
 			if (n == 1) {
 				session.commit();

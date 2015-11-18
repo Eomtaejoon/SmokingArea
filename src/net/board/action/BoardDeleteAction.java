@@ -24,21 +24,22 @@ public class BoardDeleteAction implements Action {
 	   	int num=Integer.parseInt(request.getParameter("num"));
 	   	
 	   	BoardService service = new BoardService(); //서비스 객체 생성
-   		
+	   	System.out.println("num="+num);
+	   	System.out.println("id="+id);
 	 
-	   	if(id!="admin"){
-	   	  	usercheck = service.isBoardWriter(num, id); 
-		   	if(usercheck==false){
-		   		response.setContentType("text/html;charset=euc-kr");
-		   		PrintWriter out=response.getWriter();
-		   		out.println("<script>");
-		   		out.println("alert('글쓴이가 아닙니다.');");
-		   		out.println("location.href='./index.me';");
-		   		out.println("</script>");
-		   		out.close();
-		   		return null;
-		   	}
-	   	}
+		if (!id.equals("admin")) {
+			usercheck = service.isBoardWriter(num, id);
+			if (usercheck == false) {
+				response.setContentType("text/html;charset=euc-kr");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('글쓴이가 아닙니다.');");
+				out.println("location.href='./index.me';");
+				out.println("</script>");
+				out.close();
+				return null;
+			}
+		}
 	   	service.delete(num); 
 	    	   	
 	   	forward.setRedirect(true);

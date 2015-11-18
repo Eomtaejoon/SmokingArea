@@ -27,7 +27,7 @@ import net.entity.BoardBean;
 		 
 		 BoardService service = new BoardService(); //서비스 객체 생성
 	   	 
-		 if(id!="admin"){
+		 if(!id.equals("admin")){
 			 usercheck = service.isBoardWriter(num, id); 
 			 if(usercheck==false){
 			   		response.setContentType("text/html;charset=euc-kr");

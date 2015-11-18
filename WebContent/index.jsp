@@ -9,7 +9,6 @@
 	boolean login = id == null ? false : true;
 	
 	List boardList1=(List)session.getAttribute("boardlist1");
-	System.out.print(boardList1);
 %>
 <html>
 <head>
@@ -126,13 +125,24 @@ $(document).ready(function(){
 		
 		<div class="row">
 		<%
-			for(int i=0;i<3;i++){
-				BoardBean bl=(BoardBean)boardList1.get(i);
+			if(boardList1.size()!=0){
+				for(int i=0;i<boardList1.size();i++){
+					BoardBean bl=(BoardBean)boardList1.get(i);
 		%>
 			<div id="best">
 			<div class="large-4 columns">
 				<img src="<%=request.getContextPath()%>/boardupload/<%=bl.getImg()%>" />
 				<div style="text-align: center;"><h4>제목 : <%=bl.getTitle() %></h4></div>
+			</div>
+			</div>
+		<%							
+			}
+		}else{
+		%>
+			<div id="best">
+			<div class="large-4 columns">
+				<img src="http://www.juohouse.com/file/base/sample_s.gif" />
+				<div style="text-align: center;"><h4>자료 준비중</h4></div>
 			</div>
 			</div>
 		<%} %>

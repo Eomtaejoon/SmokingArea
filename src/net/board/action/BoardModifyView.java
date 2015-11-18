@@ -3,7 +3,6 @@ package net.board.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.board.db.BoardDAO;
 import net.board.db.BoardService;
 import net.entity.BoardBean;
 
